@@ -3,7 +3,7 @@
 $(window).load(function() {
 
 //Image Slider
-$('.slider-image').flexslider({
+/* $('.slider-image').flexslider({
     	animation: "fade",
 		slideshowSpeed: 4000,
 		animationDuration: 600,
@@ -14,8 +14,10 @@ $('.slider-image').flexslider({
 		pauseOnAction: true  
 	
 });
+*/
 
 //Text + Image Slider
+/*
 $('.slider-text-image').flexslider({
     	animation: "fade",
 		slideshowSpeed: 4000,
@@ -27,7 +29,7 @@ $('.slider-text-image').flexslider({
 		pauseOnAction: true  
 	
 });
-
+*/
 //testimonial slider
 $('.slider-testimonial').flexslider({
     	animation: "fade",
