@@ -171,7 +171,7 @@ div.clearfix { zoom: 1; }
 .content-box header {
 	overflow:hidden;
 	margin-left:10px;
-	height:49px;
+	height:35px;
 	background:url('../img/bgs/bg_container_top_right.png') no-repeat right 0;
 	z-index:5;
 }
