@@ -147,6 +147,10 @@ section[role=main] { padding-top:80px; }
 	margin-right:1%;
 	float:left;
 }
+
+.col-2.quarter {
+width: 65%;
+}
 .col-3 {
 	width:32%;
 	margin-right:1%;
@@ -235,7 +239,7 @@ div.clearfix { zoom: 1; }
 	padding:20px;
 	margin:0 2px;
 padding-top: 40px;
-min-height: 270px;
+min-height: 250px;
 }
 .content-box section h1, .content-box section h2, .content-box section h3, .content-box section h4, .content-box section h5 { margin-top:0; }
 .content-box section h5 { margin-bottom:.7em; }
