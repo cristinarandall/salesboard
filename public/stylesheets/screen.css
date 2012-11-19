@@ -707,7 +707,8 @@ float:left;
 	font-weight:bold;
 	text-align:center;
 	position:relative;
-	top:-2px;
+	top:-4px;
+font-size: 12px;
 }
 .progress-bar div span sup { top:-0.2em; }
 .progress-bar.small { width:25%; }
