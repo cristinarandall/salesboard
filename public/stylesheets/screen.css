@@ -149,7 +149,7 @@ section[role=main] { padding-top:80px; }
 }
 .col-3 {
 	width:32%;
-	margin-right:2%;
+	margin-right:1%;
 	float:left;
 }
 .col-4 {
@@ -187,7 +187,7 @@ div.clearfix { zoom: 1; }
 .content-box header .content-box-minimizer {
 	display:none;
 	text-indent:-9999em;
-	background:url('../img/icons/icon_minimizer.png') no-repeat 0 -23px;
+	background:none;
 	width:22px;
 	height:23px;
 	position:absolute;
