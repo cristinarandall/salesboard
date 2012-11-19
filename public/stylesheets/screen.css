@@ -837,7 +837,7 @@ float:left;
 	-webkit-border-radius:3px;
 	-moz-border-radius:3px;
 	border-radius:3px;
-	min-height:32px;
+	min-height:52px;
 	background-image:none;
 }
 .content-box section .stats-summary p, .content-box section .stats-summary .stats-count { float:left; }
