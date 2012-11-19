@@ -1746,3 +1746,20 @@ body.error-page .error-content form button {
 	top:9px;
 	left:-1px;
 }
+
+.connected-salesforce {
+display: block;
+float: right;
+margin-right: 200px;
+width: 125px;
+background: white;
+padding-left: 10px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+margin-top: 3px;
+}
+
+.connected-salesforce img{
+height: 25px;
+padding-top: 3px;
+}
