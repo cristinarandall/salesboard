@@ -36,5 +36,10 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 # gem 'capistrano'
 
+gem 'databasedotcom'
+
+
+gem 'omniauth-salesforce'
+
 # To use debugger
 # gem 'debugger'

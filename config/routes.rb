@@ -4,6 +4,7 @@ Salesboard::Application.routes.draw do
 
 
     match '' => 'landings#index'
+    match 'admin' => 'admins#index'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
