@@ -76,7 +76,135 @@ margin-left: 320px;
 .content-box section .stats-summary li.first {
 min-height: 12px;
 }
+
+
+.goal-setting header {
+display: none;
+}
+
+.goal-setting section{
+background-color: transparent;
+border:none;
+}
+
+
+
+.goal-setting.content-box {
+background:none;
+}
+
+
+.goal-setting.content-box .accordion-switch{
+background:white;
+}
+
+.content-box section .accordion li {
+margin-bottom: 10px;
+margin-top: 10px;
+background: white;
+
+}
+
+.content-box section .accordion .accordion-switch {
+border-color: transparent;
+}
+
+
+.content-box section .accordion .fold-out p
+{
+margin: 20px;
+display: block;
+padding-bottom: 20px;
+padding-top: 10px;
+}
+
+
+.accordion .add-goal .accordion-switch h3 {
+text-transform: uppercase;
+color:#666;
+}
+
+
+.add-goal .accordion-switch
+{
+position: relative;
+}
+
+.accordion-switch .settings {
+border:none;
+position: absolute;
+top: 5px;
+right: 10px;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+opacity: 0.1;
+width: 25px;
+}
+
+.add-goal{
+-webkit-box-shadow: 3px 3px 10px #B3B3B3;
+-moz-box-shadow: 3px 3px 10px #b3b3b3;
+box-shadow: 3px 3px 10px #B3B3B3;
+}
+
+input.small, textarea.small {
+width: 35%;
+}
+
+label {
+color: #333;
+font-size: 16px;
+font-weight:normal;
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea, select {
+font-size: 16px;
+}
+
+.add-goal fieldset{
+border: none;
+}
+
+.add-goal select {
+font-family: inherit;
+font-size: 14px;
+color: #BBBDC0;
+cursor: pointer;
+}
+
+.add-goal select {
+width: 120px;
+height: 14px;
+font-family: inherit;
+font-size: 14px;
+color: #BBBDC0;
+background: white;
+border: none;
+-moz-appearance: none;
+-webkit-appearance: none;
+appearance: none;
+background: url(../images/select.png) center right no-repeat;
+cursor: pointer;
+}
+
+.add-goal:hover h3{
+opacity: 0.5;
+}
+
+.add-goal .gray {
+font-size: 17px;
+font-weight: normal;
+width:100px;
+}
+
+
+.goal-setting.col-2 {
+width: 45%;
+}
 </style>
+
+
 
 	
 </head>
@@ -129,964 +257,8 @@ min-height: 12px;
 	</header>
 	<!-- End of Muon Header -->		
 	
-	<!-- Main Content -->
-	<section role="main" class="page-wrapper">
-	
-		<!-- Dashboard -->
-		<section id="dashboard">
- 		 
-			
-    <h1> My Progress Dashboard</h1>        
-            
- 
-  <nav style="float:right;margin-top:-40px;margin-right:30px; " >
-					<a href="#" style="width: 80px; font-size: 20px;padding-left: 20px;" class="toggle-options-switch button red active"> Today</a>
-					<ul class="options-switch" style="display: block; width: 100px; right: 50px;">
-						<li><a href="#">Today </a></li>
-						<li><a href="#">Week </a></li>
-						<li><a href="#">Month</a></li>
-					</ul>
-				</nav>
-            
- 
-                                  
-			<!-- Nav Shortcuts -->
-			<ul class="shortcuts" style="display:none;">
-				<li class="shortcut-contacts"><a href="" title="">New Orders </a> <span class="small-notification">3</span></li>
-				<li class="shortcut-sales"><a href="" title=""> Total $10,000</a>  </li>
 
-				<li class="shortcut-articles"><a href="" title="">Messages</a></li>
- 			</ul>
-			<!-- /Nav Shortcuts -->
-			
-		</section>
-		<!-- /Dashboard -->
-
-
-
-<article class="content-box minimizer col-3 salesboard-stat-block">
-			<header>
-				<h2 style="padding-right: 50px; "> Prospecting</h2>
-
-            </header>
-
-
-
-			
-			<!-- User Profile - vCard -->
-			<section id="hcard-Kevin-Glenn-Bates"  style="display: block; ">
-				
- 
-			
-				<!-- Stats Summary -->
-				<ul class="stats-summary">
-                
-                <li class="first">
-                
-               <p class="stat-title header-title"> Goal</p>     
-
-               <p class="stat-title header-title second"> Actual</p>     
-
-                
-                </li>
-                
-                
-					<li>
-                    
-                    
-               <p class="stat-title"> New Prospect: Lead</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count first">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
- 
- 					<li>
-                    
-                    
-               <p class="stat-title"> New Prospect: Contact</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
-                                       
- 					<li>
-                    
-                    
-               <p class="stat-title"> New Prospect: Account</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar blue medium individual-stat">
-					<div style="width:100%;">
-						<span>100<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
-                                                          
-                                                                             
-					 
-				</ul>
-				<!-- /Stats Summary -->
-
-
-	 
-				
-			</section>
-			
-		</article>
-        
- 
-        
-               
-                      
-  <article class="content-box minimizer col-2 quarter salesboard-stat-block">
-			<header>
-				<h2 style="padding-right: 50px; "> Calling</h2>
-
-
- 
-
-            </header>
-
-
-			
-			<!-- User Profile - vCard -->
-			<section id="hcard-Kevin-Glenn-Bates"  style="display: block; ">
-				
- 
-			
-				<!-- Stats Summary -->
-				<ul class="stats-summary" style="width:470px;float:left;">
-                
-                <li class="first">
-                
-               <p class="stat-title header-title"> Goal</p>     
-
-               <p class="stat-title header-title second"> Actual</p>     
-
-                
-                </li>
-                
-                
-					<li>
-                    
-                    
-               <p class="stat-title"> New Call made</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count first">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
- 
- 					<li>
-                    
-                    
-               <p class="stat-title">Callback</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
-                                       
- 					<li>
-                    
-                    
-               <p class="stat-title"> Call Conversation</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar blue medium individual-stat">
-					<div style="width:100%;">
-						<span>100<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
-                                                          
-                                                                             
-					 
-				</ul>
-				<!-- /Stats Summary -->
-
-
-
-
-			
-				<!-- Stats Summary -->
-				<ul class="stats-summary" style="width:470px;float:right;position:absolute;right:0px;">
-                
-                <li class="first">
-                
-               <p class="stat-title header-title"> Goal</p>     
-
-               <p class="stat-title header-title second"> Actual</p>     
-
-                
-                </li>
-                
-                
-					<li>
-                    
-                    
-               <p class="stat-title"> First Call Scheduled</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count first">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
- 
- 					<li>
-                    
-                    
-               <p class="stat-title">First Call Executed</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
-                                       
- 				                                               
-					 
-				</ul>
-				<!-- /Stats Summary -->
-                
-	 
-				
-			</section>
-			
-		</article>                           
-                                           
-        
- <article class="content-box minimizer col-3 salesboard-stat-block">
-			<header>
-				<h2 style="padding-right: 50px; "> Emailing</h2>
-			
-            </header>
-			
-			<!-- User Profile - vCard -->
-			<section id="hcard-Kevin-Glenn-Bates"  style="display: block; ">
-				
- 
-
-
-			
-				<!-- Stats Summary -->
-				<ul class="stats-summary">
-                
-                 
-                <li class="first">
-                
-               <p class="stat-title header-title"> Goal</p>     
-
-               <p class="stat-title header-title second"> Actual</p>     
-
-                
-                </li>               
-                
-                
-                
-					<li>
-                    
-                    
-               <p class="stat-title"> New Email Sent</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count first">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
- 
- 					<li>
-                    
-                    
-               <p class="stat-title"> Email Callback</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
-                                       
- 					<li>
-                    
-                    
-               <p class="stat-title"> Email Conversation</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar blue medium individual-stat">
-					<div style="width:100%;">
-						<span>100<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
-                                                          
-                                                                             
-					 
-				</ul>
-				<!-- /Stats Summary -->
-
-
-	 
-				
-			</section>
-			
-		</article>
-        
-       
-  
-   
-    
-     
-  <article class="content-box minimizer col-3 salesboard-stat-block">
-			<header>
-				<h2 style="padding-right: 50px; "> Tweeting</h2>
-             </header>
-			
-			<!-- User Profile - vCard -->
-			<section id="hcard-Kevin-Glenn-Bates"  style="display: block; ">
-				
- 
-
-
-			
-				<!-- Stats Summary -->
-				<ul class="stats-summary">
-                
-                 
-                <li class="first">
-                
-               <p class="stat-title header-title"> Goal</p>     
-
-               <p class="stat-title header-title second"> Actual</p>     
-
-                
-                </li>               
-                
-                
-                
-					<li>
-                    
-                    
-               <p class="stat-title"> Twitter New Tweet</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count first">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
- 
- 					<li>
-                    
-                    
-               <p class="stat-title"> Twitter Callback</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
-                                       
- 					<li>
-                    
-                    
-               <p class="stat-title"> Twitter Conversation</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar blue medium individual-stat">
-					<div style="width:100%;">
-						<span>100<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
-                                                          
-                                                                             
-					 
-				</ul>
-				<!-- /Stats Summary -->
-
-
-	 
-				
-			</section>
-			
-		</article>      
-           
-  
-    
-   <article class="content-box minimizer col-3 salesboard-stat-block">
-			<header>
-				<h2 style="padding-right: 50px; "> Meetings</h2>
-             
-            </header>
-			
-			<!-- User Profile - vCard -->
-			<section id="hcard-Kevin-Glenn-Bates"  style="display: block; ">
-				
- 
-
-
-			
-				<!-- Stats Summary -->
-				<ul class="stats-summary">
-                
-                 
-                <li class="first">
-                
-               <p class="stat-title header-title"> Goal</p>     
-
-               <p class="stat-title header-title second"> Actual</p>     
-
-                
-                </li>               
-                
-                
-                
-					<li>
-                    
-                    
-               <p class="stat-title"> Meeting Scheduled</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count first">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
- 
- 					<li>
-                    
-                    
-               <p class="stat-title"> Meeting Executed</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
-                                       
-  
-                                                          
-                                                                             
-					 
-				</ul>
-				<!-- /Stats Summary -->
-
-
-	 
-				
-			</section>
-			
-		</article>        
-          
-
-
-
-
-  <article class="content-box minimizer col-3 salesboard-stat-block">
-			<header>
-				<h2 style="padding-right: 50px; "> Proposals</h2>
-
-            </header>
-			
-			<!-- User Profile - vCard -->
-			<section id="hcard-Kevin-Glenn-Bates"  style="display: block; ">
-				
- 
-
-
-			
-				<!-- Stats Summary -->
-				<ul class="stats-summary">
-                
-                 
-                <li class="first">
-                
-               <p class="stat-title header-title"> Goal</p>     
-
-               <p class="stat-title header-title second"> Actual</p>     
-
-                
-                </li>               
-                
-                
-                
-					<li>
-                    
-                    
-               <p class="stat-title"> Proposal Created</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count first">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
- 
- 					<li>
-                    
-                    
-               <p class="stat-title"> Proposal Submitted</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
-                                       
-  
-                                                          
-                                                                             
-					 
-				</ul>
-				<!-- /Stats Summary -->
-
-
-	 
-				
-			</section>
-			
-		</article>   
-
-
-
-  <article class="content-box minimizer col-3 salesboard-stat-block">
-			<header>
-				<h2 style="padding-right: 50px; "> Deals</h2>
-			 </header>
-			
-			<!-- User Profile - vCard -->
-			<section id="hcard-Kevin-Glenn-Bates"  style="display: block; ">
-				
- 
-
-
-			
-				<!-- Stats Summary -->
-				<ul class="stats-summary">
-                
-                 
-                <li class="first">
-                
-               <p class="stat-title header-title"> Goal</p>     
-
-               <p class="stat-title header-title second"> Actual</p>     
-
-                
-                </li>               
-                
-                
-                
-					<li>
-                    
-                    
-               <p class="stat-title"> Active </p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count first">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
- 
- 					<li>
-                    
-                    
-               <p class="stat-title"> Won </p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
- 
-                                       
-  					<li>
-                    
-                    
-               <p class="stat-title"> Lost </p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
-                                                                                                                                                     
-  
-                                                          
-                                                                             
-					 
-				</ul>
-				<!-- /Stats Summary -->
-
-
-	 
-				
-			</section>
-			
-		</article>  
-
-		<div class="clearfix"></div> <!-- We're really sorry for this, but because of IE7 we still need separated div with clearfix -->
- 
-		
-		<div class="clearfix"></div> <!-- We're really sorry for this, but because of IE7 we still need separated div with clearfix -->
-	 
-		
-		 
-		
-	 
-		
-		<div class="clearfix"></div> <!-- We're really sorry for this, but because of IE7 we still need separated div with clearfix -->
- 
-		
-		<div class="clearfix"></div> <!-- We're really sorry for this, but because of IE7 we still need separated div with clearfix -->
-		 
-		
-	 
-
-		<div class="clearfix"></div> <!-- We're really sorry for this, but because of IE7 we still need separated div with clearfix -->
-
-
-		
-		<div class="clearfix"></div> <!-- We're really sorry for this, but because of IE7 we still need separated div with clearfix -->
-	
-		
-		<div class="clearfix"></div> <!-- We're really sorry for this, but because of IE7 we still need separated div with clearfix -->
-	  
-		
-	 
-	
-	</section>
-	<!-- /Main Content -->
+<%= yield %>
 	
 	<!-- Main Footer -->
 	<footer id="footer">
@@ -1126,6 +298,26 @@ min-height: 12px;
  
 
     <%= javascript_include_tag "libs/selectivizr.js", "jquery/jquery.visualize.js", "jquery/jquery.visualize.tooltip.js", "jquery/jquery.tipsy.js", "jquery/jquery.nyromodal.min.js", "jquery/jquery.wysiwyg.js", "jquery/jquery.datatables.js", "jquery/jquery.datepicker.js", "jquery/jquery.fileinput.js", "jquery/jquery.fullcalendar.min.js", "jquery/jquery.ui.totop.js", "jquery/jquery.ui.totop.js", "jquery/jquery.snippet.js", "jquery/jquery.muonmenu.js", "jquery/jquery.muonmenu.js", "script.js" %>
+
+
+<script>
+$(document).ready(function(){
+
+$(".add-goal .small").focus(function() {
+
+var $input = $(this);
+
+$("label").css("font-weight", "normal");
+
+$input.parent("dd").prev("dt").find("label").css("font-weight", "bold");
+var $button = $(this).parents(".horizontal-form").find(".gray");
+if ($button.hasClass("disabled")){
+$button.removeClass("disabled");
+}
+});
+
+});
+</script>
 
 </body>
 </html>

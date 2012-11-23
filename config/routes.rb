@@ -5,7 +5,7 @@ Salesboard::Application.routes.draw do
 
     match '' => 'landings#index'
     match 'admin' => 'admins#index'
-
+    match 'goals' => 'admins#add_goals'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
