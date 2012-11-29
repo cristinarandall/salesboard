@@ -17,8 +17,8 @@ Salesboard Admin
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 	
 
-
-<%= stylesheet_link_tag "screen.css", "colors.css", "jquery.muon.css", "jquery.tipsy.css", "jquery.wysiwyg.css", "jquery.datatables.css", "jquery.nyromodal.css", "jquery.datepicker.css", "jquery.fileinput.css", "jquery.fullcalendar.css", "jquery.visualize.css", "jquery.snippet.css" %>	
+<%= stylesheet_link_tag "style.css" %>
+<%= stylesheet_link_tag "screen.css", "colors.css", "jquery.muon.css", "jquery.tipsy.css", "jquery.wysiwyg.css", "jquery.datatables.css", "jquery.nyromodal.css", "jquery.datepicker.css", "jquery.fileinput.css", "jquery.fullcalendar.css", "jquery.visualize.css", "jquery.snippet.css", "bootstrap-buttons.css" %>
  
 	
 	<!-- Google WebFonts -->
@@ -28,6 +28,17 @@ Salesboard Admin
 	<script src="js/libs/modernizr-1.7.min.js"></script>
 
 <style>
+
+
+#salesforce-connected {
+float: left;
+margin-top: 130px;
+}
+
+.sf-no-use{
+margin-left: 35px;
+margin-top: -20px;
+}
 .content-box.salesboard-stat-block .progress-bar.individual-stat
         {
 float:left;
@@ -202,6 +213,25 @@ width:100px;
 .goal-setting.col-2 {
 width: 45%;
 }
+
+.stats-summary img {
+border-color: transparent;
+border: none;
+-webkit-box-shadow: none;
+box-shadow: none;
+-moz-box-shadow: none;
+width: 150px;
+}
+
+.stats-summary li p {
+font-size: 20px;
+}
+
+.stats-summary p {
+
+width:100%;
+}
+
 </style>
 
 
