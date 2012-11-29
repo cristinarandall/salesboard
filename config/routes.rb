@@ -9,6 +9,7 @@ Salesboard::Application.routes.draw do
     match 'leaderboard' => 'admins#leaderboard'
     match 'new' => 'users#new'
     match 'register' => 'user_sessions#new'
+    match 'settings' => 'users#manager_account_settings'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
