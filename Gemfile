@@ -38,6 +38,7 @@ gem 'jquery-rails'
 
 gem 'databasedotcom'
 
+gem "authlogic"
 
 gem 'omniauth-salesforce'
 

@@ -251,7 +251,7 @@ $(function(){
 		}
 	);
 	
-	// Tickets
+	/*
 	$('.tickets .ticket-details').hide(); // Hide all ticket details
 	$('.tickets .ticket-open-details').click( // On click hide all ticket details content and open clicked one
 		function() {
@@ -261,6 +261,7 @@ $(function(){
 			return false;
 		}
 	);
+	*/
 	
 	// Wizard
 	$('.wizard-content').hide(); // Hide all steps

@@ -12,8 +12,7 @@
 
 /*  Colors  */
 a, a:active, a:visited, .content-box section h1, .content-box section h2, .content-box section h3, .content-box section h4, 
-.content-box section h5 { color:#ae432e; }
-
+.content-box section h5 { color:#545454; }
 /*  Box Shadow  */
 body.gray .button, body.gray a.button, body.gray button, body.gray input[type="button"], body.gray input[type="submit"] { box-shadow:0 1px 2px #bfbfbf; }
 

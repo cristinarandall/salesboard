@@ -3,6 +3,9 @@ Salesboard::Application.routes.draw do
   # first created -> highest priority.
 
 
+    match '/auth/open_id' => 'actions#auth_callback'
+    match '/auth/:provider/callback' => 'actions#auth_callback'
+
     match '' => 'landings#index'
     match 'admin' => 'admins#index'
     match 'goals' => 'admins#add_goals'

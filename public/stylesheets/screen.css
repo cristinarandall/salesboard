@@ -883,7 +883,7 @@ display:none;
 .tickets .ticket-header li, .tickets .ticket-data li {
 	text-align:center;
 	padding:0;
-	width:15%;
+	width:30%;
 }
 .tickets .ticket-header .ticket-header-activity, .tickets .ticket-data .ticket-data-activity { width:40%; }
 .tickets .ticket-data {
