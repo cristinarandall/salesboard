@@ -38,7 +38,7 @@ gem 'jquery-rails'
 
 gem 'databasedotcom'
 
-gem "authlogic", :git => 'git@github.com:james2m/authlogic.git', :branch => 'fix-migrations'
+gem "authlogic" #, :git => 'git@github.com:james2m/authlogic.git', :branch => 'fix-migrations'
 gem 'omniauth-salesforce'
 
 # To use debugger
