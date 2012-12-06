@@ -61,6 +61,8 @@ def salesforce_callback
 
     logger.info "\n--------------\n#{omniauth["email"]}\n-------------\n"
 		else
+    logger.info "\n--------------\n#{omniauth["email"]}\n-------------\n"
+
                     logger.info "\n--------------\n no email ----------"
 		end
 
