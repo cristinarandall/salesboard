@@ -4,8 +4,7 @@ class UsersController < ApplicationController
 
 def salesforce_callback
 
-        @origin = request.env['omniauth.origin']
-    logger.info "\n--------------\n#{@origin}\n-------------\n"
+
 
 
       if current_user
@@ -17,8 +16,11 @@ def salesforce_callback
     session[:omniauth] = omniauth.except('extra') if omniauth
 
 
+
+    logger.info "\n--------------checking omniauth-------------\n"
   if omniauth
       authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
+    logger.info "\n--------------\n#{omniauth}\n-------------\n"
   else
     logger.info "\n--------------\n omniauth empty ----------"
   end
