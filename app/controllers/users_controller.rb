@@ -1,6 +1,69 @@
 class UsersController < ActionController::Base
  layout 'admin'
 
+
+def salesforce_callback
+
+        @origin = request.env['omniauth.origin']
+    logger.info "\n--------------\n#{@origin}\n-------------\n"
+
+
+      if current_user
+        logger.info "\n--------------\n check to see if the current user should be logged in:\n-------------\n"
+        @current_user = User.find(current_user)
+      end
+
+    omniauth = request.env["omniauth.auth"]
+    session[:omniauth] = omniauth.except('extra') if omniauth
+
+
+  if omniauth
+      authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
+  else
+    logger.info "\n--------------\n omniauth empty ----------"
+  end
+
+
+
+  if (authentication) && (@current_user.nil?)
+        @user = authentication.user
+    @user = User.find(authentication.user.id)
+
+        if @user.active && @user_session.save
+                @user_session =  UserSession.create!(@user)
+                current_user = UserSession.find
+                Authlogic::Session::Base.controller = Authlogic::ControllerAdapters::RailsAdapter.new(self)
+
+
+                       flash[:notice] = "Signed in successfully."
+	end 
+    logger.info "\n--------------\n already signed in ----------"
+
+   elsif omniauth
+
+    logger.info "\n--------------\n new user ----------"
+
+
+
+
+		if omniauth["user_info"] && omniauth["user_info"]["email"]
+
+                @email =  omniauth["user_info"]["email"]
+		@user = User.create(:email=>@email, :active=>true)
+
+
+        	@user.authentications.create!(:token => omniauth['credentials']['token'], :secret => omniauth['credentials']['secret'],:provider => omniauth['provider'], :uid => omniauth['uid'])
+
+
+		end
+
+   end
+
+
+end
+
+
+
   def auth_callback
         @origin = request.env['omniauth.origin']
     logger.info "\n--------------\n#{@origin}\n-------------\n"
