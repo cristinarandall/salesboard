@@ -16,7 +16,6 @@ def salesforce_callback
     session[:omniauth] = omniauth.except('extra') if omniauth
 
 
-
     logger.info "\n--------------checking omniauth-------------\n"
   if omniauth
       authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
@@ -47,7 +46,10 @@ def salesforce_callback
 
 
 
+    logger.info "\n--------------\n#{omniauth["provider"]}\n-------------\n"
 
+
+    logger.info "\n--------------\n printed provider ----------"
 		if omniauth["user_info"] && omniauth["user_info"]["email"]
 
                 @email =  omniauth["user_info"]["email"]
