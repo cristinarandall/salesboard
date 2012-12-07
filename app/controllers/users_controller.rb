@@ -39,7 +39,7 @@ def salesforce_callback
 
 
 
-
+    logger.info "\n--------------\n#{omniauth["email"]}\n-------------\n"
     logger.info "\n--------------\n#{omniauth["provider"]}\n-------------\n"
 
 
