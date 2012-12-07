@@ -43,15 +43,11 @@ def salesforce_callback
     logger.info "\n--------------\n#{omniauth["provider"]}\n-------------\n"
     logger.info "\n--------------\n#{omniauth["info"]["name"]}\n-------------\n"
 
-		if omniauth["user_info"] && omniauth["user_info"]["email"]
+		if omniauth["info"]
+                @email =  omniauth["info"]["email"]
+		@user = User.create(:email=>@email, :active=>true, :name=>omniauth["info"]["name"])
 
-                @email =  omniauth["user_info"]["email"]
-		@user = User.create(:email=>@email, :active=>true)
-
-
-        	@user.authentications.create!(:token => omniauth['credentials']['token'], :secret => omniauth['credentials']['secret'],:provider => omniauth['provider'], :uid => omniauth['uid'])
-
-
+        	@user.authentications.create!(:token => omniauth['credentials']['token'], :secret => omniauth['credentials']['secret'], :provider => omniauth['provider'], :uid => omniauth['uid'])
 		elsif omniauth["email"]
 
 		else
