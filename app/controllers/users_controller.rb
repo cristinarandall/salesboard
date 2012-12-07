@@ -8,7 +8,6 @@ def salesforce_callback
 
 
       if current_user
-        logger.info "\n--------------\n check to see if the current user should be logged in:\n-------------\n"
         @current_user = User.find(current_user)
       end
 
@@ -16,12 +15,9 @@ def salesforce_callback
     session[:omniauth] = omniauth.except('extra') if omniauth
 
 
-    logger.info "\n--------------checking omniauth-------------\n"
   if omniauth
       authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
-    logger.info "\n--------------\n#{omniauth}\n-------------\n"
   else
-    logger.info "\n--------------\n omniauth empty ----------"
   end
 
 
@@ -38,18 +34,15 @@ def salesforce_callback
 
                        flash[:notice] = "Signed in successfully."
 	end 
-    logger.info "\n--------------\n already signed in ----------"
 
    elsif omniauth
 
-    logger.info "\n--------------\n new user ----------"
 
 
 
     logger.info "\n--------------\n#{omniauth["provider"]}\n-------------\n"
 
 
-    logger.info "\n--------------\n printed provider ----------"
 		if omniauth["user_info"] && omniauth["user_info"]["email"]
 
                 @email =  omniauth["user_info"]["email"]
@@ -61,12 +54,8 @@ def salesforce_callback
 
 		elsif omniauth["email"]
 
-    logger.info "\n--------------\n#{omniauth["email"]}\n-------------\n"
 		else
-    logger.info "\n--------------\n printing name ----------"
-    logger.info "\n--------------\n#{omniauth["name"]}\n-------------\n"
 
-                    logger.info "\n--------------\n no email ----------"
 		end
 
 
