@@ -39,9 +39,9 @@ def salesforce_callback
 
 
 
-    logger.info "\n--------------\n#{omniauth["email"]}\n-------------\n"
+    logger.info "\n--------------\n#{omniauth["uid"]}\n-------------\n"
     logger.info "\n--------------\n#{omniauth["provider"]}\n-------------\n"
-
+    logger.info "\n--------------\n#{omniauth["info"]["name"]}\n-------------\n"
 
 		if omniauth["user_info"] && omniauth["user_info"]["email"]
 
