@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Authentication < ActiveRecord::Base
 
-
+  attr_accessible :provider, :uid, :secret, :token, :user_id
 
 
 
