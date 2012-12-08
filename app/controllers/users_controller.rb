@@ -35,6 +35,11 @@ def salesforce_callback
                        flash[:notice] = "Signed in successfully."
 	end 
 
+   elseif (authentication) && (authentication.user_id)
+
+    @current_user = User.find(authentication.user_id)
+    logger.info "\n-------------- sign in-------------\n"
+      @user_session =  UserSession.create!(@current_user)
    elsif omniauth
 
 
