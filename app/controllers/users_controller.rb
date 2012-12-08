@@ -53,7 +53,7 @@ def salesforce_callback
 #    logger.info "\n--------------\n#{omniauth["credentials"]}\n-------------\n"
     logger.info "\n--------------\n#{omniauth["credentials"]["instance_url"]}\n-------------\n"
     logger.info "\n-------------- credentials end-------------\n"
-        	Authentication.create(:user_id=>@user.id, :token => omniauth['credentials']['token'], :secret => omniauth['credentials']['secret'], :provider => omniauth['provider'], :uid => omniauth['uid'], :instance_url=> omniauth['credentials']['instance_url'])	
+        	Authentication.create(:user_id=>@user.id, :token => omniauth['credentials']['token'], :secret => omniauth['credentials']['secret'], :provider => omniauth['provider'], :uid => omniauth['uid'], :instance_url=> omniauth["credentials"]["instance_url"])	
 	elsif omniauth["email"]
 
 		else
