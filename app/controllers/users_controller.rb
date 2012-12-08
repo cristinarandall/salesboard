@@ -47,7 +47,7 @@ def salesforce_callback
                 @email =  omniauth["info"]["email"]
 		@user = User.create(:email=>@email, :active=>true, :name=>omniauth["info"]["name"])
 
-        	@user.authentications.create!(:token => omniauth['credentials']['token'], :secret => omniauth['credentials']['secret'], :provider => omniauth['provider'], :uid => omniauth['uid'])
+        	Authentication.create(:user_id=>@user.id, :token => omniauth['credentials']['token'], :secret => omniauth['credentials']['secret'], :provider => omniauth['provider'], :uid => omniauth['uid'])
 		elsif omniauth["email"]
 
 		else
