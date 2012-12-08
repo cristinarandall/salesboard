@@ -1,8 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Authentication < ActiveRecord::Base
 
-  attr_accessible :provider, :uid, :secret, :token, :user_id
-
+  attr_accessible :provider, :uid, :secret, :token, :user_id, :secret
 
 
 #  acts_as_authentic do |config|
