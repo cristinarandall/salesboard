@@ -1,8 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Authentication < ActiveRecord::Base
 
-  attr_accessible :provider, :uid, :secret, :token, :user_id, :secret
-
+  attr_accessible :provider, :uid, :secret, :token, :user_id, :secret, :instance_url
 
 #  acts_as_authentic do |config|
     #disable_perishable_token_maintenance(true)
