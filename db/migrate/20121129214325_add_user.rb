@@ -7,7 +7,7 @@ class AddUser < ActiveRecord::Migration
 #      t.timestamps
 #  end
 
-add_column :authentications, :user_id, :int
+add_column :authentications, :secret, :string
   end
 
   def down
