@@ -40,6 +40,7 @@ gem 'databasedotcom'
 
 gem "authlogic" #, :git => 'git@github.com:james2m/authlogic.git', :branch => 'fix-migrations'
 gem 'omniauth-salesforce'
+gem 'databasedotcom-rails'
 
 # To use debugger
 # gem 'debugger'
