@@ -163,6 +163,7 @@ def manager_account_settings
 if params[:user_id]
 
 @salespeople = SalesPerson.find_all_by_manager_id(params[:user_id])
+@locations = OfficeLocation.find_all_by_manager_id(params[:user_id])
 end
 
     respond_to do |format|
