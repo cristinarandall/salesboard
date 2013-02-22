@@ -7,7 +7,7 @@ class OfficeLocation < ActiveRecord::Migration
 #  end
 
 add_column :sales_people, :manager_id, :int
-
+add_column :users, :company, :string
 
   end
 
