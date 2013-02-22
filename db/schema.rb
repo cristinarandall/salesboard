@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121129231426) do
+ActiveRecord::Schema.define(:version => 20130222045511) do
 
   create_table "access_tokens", :force => true do |t|
     t.integer  "user_id"
@@ -25,52 +25,6 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
   end
 
   add_index "access_tokens", ["key"], :name => "index_access_tokens_on_key", :unique => true
-
-  create_table "actions", :force => true do |t|
-    t.datetime "created_at"
-    t.string   "action"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-    t.text     "message"
-    t.string   "image"
-    t.integer  "company_id"
-    t.integer  "friend_id"
-    t.integer  "state_id"
-    t.integer  "priority"
-    t.string   "state"
-  end
-
-  create_table "advert_categorizations", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "topic_id"
-    t.integer  "advertisement_id"
-  end
-
-  create_table "advertisements", :force => true do |t|
-    t.string   "name"
-    t.string   "picture"
-    t.string   "price"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "company_id"
-    t.string   "ad_id"
-    t.string   "campaign_id"
-    t.integer  "ad_group_id"
-    t.string   "negative_keywords"
-    t.string   "specific_keywords"
-    t.boolean  "active"
-  end
-
-  create_table "adverts", :force => true do |t|
-    t.string   "name"
-    t.string   "picture"
-    t.string   "price"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "announcements", :force => true do |t|
     t.datetime "created_at"
@@ -92,27 +46,6 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.text     "description_use"
   end
 
-  create_table "application_accounts", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "api_key"
-    t.string   "api_secret"
-    t.integer  "user_id"
-    t.string   "persistence_token"
-    t.string   "api_consumer_id"
-    t.string   "approved"
-  end
-
-  add_index "application_accounts", ["api_key"], :name => "index_application_accounts_on_api_key"
-  add_index "application_accounts", ["user_id"], :name => "index_application_accounts_on_user_id"
-
-  create_table "application_graphs", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "keyword_id"
-    t.date     "count_date"
-  end
-
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
     t.string   "provider"
@@ -123,57 +56,6 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "app_tab"
-  end
-
-  create_table "autocomplete_tags", :id => false, :force => true do |t|
-    t.string  "name"
-    t.text    "thumbnail"
-    t.integer "max"
-    t.integer "id"
-  end
-
-  add_index "autocomplete_tags", ["id"], :name => "tags_id_key", :unique => true
-
-  create_table "blog", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.string   "blog_categories"
-    t.string   "blog_tags"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "blogs", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.string   "blog_categories"
-    t.string   "blog_tags"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "blog_id"
-    t.integer  "company_id"
-    t.string   "status",          :default => "para aprobación"
-    t.string   "author_name"
-    t.integer  "user_id"
-    t.integer  "visits",          :default => 0
-    t.string   "action"
-    t.string   "featured_image"
-  end
-
-  create_table "bookmarks", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "event_id"
-    t.integer  "deal_id"
-    t.integer  "company_id"
-    t.integer  "user_id"
-    t.string   "bookmark_type"
-    t.integer  "subcategory_id"
-    t.integer  "review_id"
-    t.integer  "rating"
-    t.integer  "reviews"
-    t.string   "name"
-    t.string   "type"
   end
 
   create_table "bounce_rates", :force => true do |t|
@@ -190,6 +72,15 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.date    "day"
   end
 
+  create_table "cash_movements", :force => true do |t|
+    t.string  "cashier"
+    t.string  "folio"
+    t.float   "value"
+    t.string  "concept"
+    t.string  "location"
+    t.integer "company_id"
+  end
+
   create_table "categories", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -201,28 +92,21 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.integer  "second_priority"
   end
 
-  create_table "categorizations", :force => true do |t|
-    t.integer  "topic_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-    t.integer  "feed_id"
-  end
-
-  create_table "category_locations", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "state_id"
-    t.integer  "category_id"
-    t.string   "count"
-  end
-
   create_table "cities", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "state_id"
     t.string   "name"
     t.integer  "company_count"
+  end
+
+  create_table "clean_leads", :force => true do |t|
+    t.string   "person_email"
+    t.text     "company_name"
+    t.integer  "company_id"
+    t.integer  "emailed"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "colonias", :force => true do |t|
@@ -326,6 +210,8 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.string   "contributor_ids"
     t.string   "lada"
     t.string   "branch_name"
+    t.string   "nextel"
+    t.string   "country"
   end
 
   add_index "companies", ["address"], :name => "address_search_idx"
@@ -336,96 +222,6 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
   add_index "companies", ["parent_id"], :name => "index_companies_on_parent_id"
   add_index "companies", ["url_name"], :name => "url_name_search_idx"
   add_index "companies", ["user_id"], :name => "index_companies_on_user_id"
-
-  create_table "company_aliases", :force => true do |t|
-    t.string   "company_name"
-    t.string   "company_phone"
-    t.string   "company_city"
-    t.string   "company_state"
-    t.string   "company_postcode"
-    t.string   "person_first"
-    t.string   "person_last"
-    t.string   "person_number"
-    t.string   "person_email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "person_password"
-    t.string   "category_string"
-    t.string   "company_address"
-    t.string   "category_giro"
-    t.string   "colonia"
-    t.string   "lng"
-    t.string   "lat"
-    t.integer  "user_id"
-    t.integer  "ads"
-    t.string   "ref"
-    t.integer  "category_id"
-    t.integer  "subcategory_id"
-  end
-
-  create_table "company_categorizations", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "company_id"
-    t.integer  "topic_id"
-    t.integer  "category_id"
-    t.integer  "subcategory_id"
-    t.integer  "state_id"
-  end
-
-  create_table "company_counts", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "count"
-    t.integer  "category_id"
-    t.integer  "subcategory_id"
-    t.integer  "state_id"
-    t.string   "es"
-    t.string   "en"
-    t.string   "icon_secondary"
-    t.integer  "priority"
-  end
-
-  create_table "company_graphs", :force => true do |t|
-    t.date     "created_at"
-    t.datetime "updated_at"
-    t.integer  "count",      :default => 0
-    t.integer  "company_id"
-    t.datetime "count_date"
-  end
-
-  create_table "company_hours", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "company_industries", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "company_id"
-    t.string   "name"
-  end
-
-  create_table "company_infos", :force => true do |t|
-    t.string   "services"
-    t.string   "products"
-    t.string   "payment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "company_id"
-    t.string   "clima"
-    t.string   "eng"
-    t.string   "disabled"
-    t.text     "owener_message"
-    t.integer  "wifi"
-    t.integer  "price"
-    t.boolean  "takeout"
-    t.datetime "verified"
-    t.integer  "parking"
-    t.text     "external"
-  end
-
-  add_index "company_infos", ["company_id"], :name => "index_company_infos_on_company_id"
 
   create_table "company_locations", :force => true do |t|
     t.string   "address"
@@ -448,193 +244,11 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.string "name"
   end
 
-  create_table "company_ratings", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "company_id"
-    t.integer  "score"
-  end
-
-  create_table "company_stats", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "map",          :default => 0
-    t.integer  "picture",      :default => 0
-    t.integer  "more_info",    :default => 0
-    t.integer  "google_bot",   :default => 0
-    t.integer  "yahoo_bot",    :default => 0
-    t.integer  "msn_bot",      :default => 0
-    t.integer  "video",        :default => 0
-    t.integer  "company_id"
-    t.integer  "local",        :default => 0
-    t.integer  "national",     :default => 0
-    t.integer  "global",       :default => 0
-    t.integer  "call_count",   :default => 0
-    t.integer  "month_visits", :default => 0
-    t.integer  "week_visits",  :default => 0
-  end
-
-  create_table "company_user_reviews", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "company_id"
-    t.integer  "user_id"
-  end
-
-  create_table "company_views", :force => true do |t|
-    t.integer  "count",      :default => 0
-    t.integer  "company_id"
-    t.date     "created_at"
-    t.datetime "updated_at"
-    t.datetime "count_date"
-  end
-
-  create_table "company_with_images", :force => true do |t|
-    t.string   "company_site"
-    t.string   "company_name"
-    t.string   "company_postcode"
-    t.string   "company_address"
-    t.string   "company_state"
-    t.string   "company_phone"
-    t.string   "company_fax"
-    t.string   "employee_number"
-    t.string   "revenue"
-    t.string   "company_ownership"
-    t.text     "company_overview"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "colonia"
-    t.string   "scian"
-    t.text     "giro"
-    t.string   "year_started"
-    t.string   "company_city"
-    t.string   "source"
-    t.string   "root"
-    t.text     "company_image"
-    t.string   "person_first"
-    t.string   "person_last"
-    t.string   "person_number"
-    t.string   "person_email"
-    t.integer  "rating"
-    t.text     "review_text"
-    t.string   "categories"
-    t.text     "review_pic"
-    t.text     "deal"
-    t.integer  "review_number"
-    t.string   "microsite_color"
-    t.string   "microsite_theme"
-    t.string   "microsite_review"
-    t.string   "microsite_image"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.string   "subcategory"
-    t.string   "source_image"
-    t.integer  "completion"
-    t.string   "company_phone_bak"
-    t.integer  "user_id"
-    t.integer  "premium"
-    t.string   "subdomain"
-    t.text     "address"
-    t.decimal  "lat"
-    t.decimal  "lng"
-    t.boolean  "published"
-    t.string   "linked_in"
-    t.string   "facebook"
-    t.string   "twitter"
-    t.text     "owner_message"
-    t.string   "category_string"
-    t.text     "secondary_address"
-    t.string   "photo_remote_url"
-    t.string   "categorized"
-    t.text     "thumbnail_url"
-    t.string   "thumbnail_complete"
-    t.integer  "ads",                    :limit => 2
-    t.string   "category_giro"
-    t.tsvector "giro_vector"
-    t.tsvector "company_name_vector"
-    t.boolean  "has_image"
-    t.integer  "content_id"
-    t.tsvector "location_search_vector"
-    t.string   "name_sanitized"
-    t.integer  "company_id"
-  end
-
-  add_index "company_with_images", ["company_name_vector"], :name => "company_name_search_companies_with_images_idx"
-  add_index "company_with_images", ["giro_vector"], :name => "giro_search_companies_with_images_idx"
-  add_index "company_with_images", ["lat", "lng"], :name => "lat_lng_companies_with_images_idx"
-  add_index "company_with_images", ["location_search_vector"], :name => "company_with_images_location_search_idx"
-
-  create_table "companycontacts", :force => true do |t|
-    t.string   "title"
+  create_table "countries", :force => true do |t|
     t.string   "name"
-    t.string   "city"
-    t.string   "state"
-    t.string   "country"
-    t.string   "linkedin_id"
-    t.date     "contact_last_updated"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "accuracy"
-    t.integer  "company_id"
-    t.string   "department"
-    t.string   "hierarchy"
-  end
-
-  create_table "companyhours", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "contact_saveds", :force => true do |t|
-    t.string   "title"
-    t.string   "name"
-    t.string   "city"
-    t.string   "state"
-    t.string   "country"
-    t.string   "linkedin_id"
-    t.string   "contact_last_updated"
-    t.date     "created_at"
-    t.datetime "updated_at"
-    t.string   "purchased"
-    t.integer  "company_id"
-    t.string   "department"
-    t.string   "hierarchy"
-    t.string   "address"
-    t.integer  "user_id"
-    t.integer  "contact_id"
-  end
-
-  create_table "contacts", :force => true do |t|
-    t.string   "title"
-    t.string   "name"
-    t.string   "city"
-    t.string   "state"
-    t.string   "country"
-    t.string   "linkedin_id"
-    t.date     "contact_last_updated"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "accuracy"
-    t.integer  "company_id"
-    t.string   "department"
-    t.string   "hierarchy"
-    t.string   "address"
-    t.string   "number"
-    t.string   "email"
-  end
-
-  add_index "contacts", ["company_id"], :name => "index_contacts_on_company_id"
-  add_index "contacts", ["department"], :name => "index_contacts_on_department"
-  add_index "contacts", ["name"], :name => "index_contacts_on_name"
-
-  create_table "customer_info", :force => true do |t|
-    t.string "account_name"
-    t.string "account_number"
-    t.string "account_clabe"
-    t.string "bank_name"
-    t.string "rfc"
-    t.text   "notes"
+    t.string   "abbreviation"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "customer_infos", :force => true do |t|
@@ -663,21 +277,48 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.datetime "expiry_date"
     t.string   "payment_callback"
     t.boolean  "dineromail"
-    t.text     "google_analytics_id"
-    t.string   "shipping_type"
-    t.boolean  "iba_bool"
     t.boolean  "shipping_enabled"
+    t.string   "shipping_type"
+    t.string   "shipping_handling_rate"
+    t.string   "shipping_flat_rate"
+    t.boolean  "iba_bool"
     t.string   "fb_app_id"
+    t.string   "google_analytics_id"
+    t.string   "profile_id"
+    t.string   "skype"
+    t.string   "youtube"
+    t.boolean  "ups_enabled"
+    t.boolean  "nacional_express_saver"
+    t.boolean  "exportation_express_saver"
+    t.boolean  "exportation_expedited"
+    t.boolean  "importacion_express_saver"
+    t.boolean  "importacion_expedited"
+    t.string   "ups_password"
+    t.string   "ups_username"
+    t.text     "ups_key"
+    t.string   "ups_account"
+    t.integer  "tax_rate"
     t.string   "olark"
     t.boolean  "temp_new_cart"
+    t.boolean  "shipping_insurance"
+    t.boolean  "shipping_included"
+    t.boolean  "tax_included"
+    t.boolean  "pequeno_contribuyente"
+    t.boolean  "show_tax_in_price"
   end
 
   create_table "customer_page_translations", :force => true do |t|
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
     t.integer  "customer_page_id"
     t.string   "locale"
+    t.string   "header_1"
+    t.text     "content"
+    t.string   "link_name"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
+
+  add_index "customer_page_translations", ["customer_page_id"], :name => "index_c1cf1dc3bcd953f923548cc8884e3252352cf2a7"
+  add_index "customer_page_translations", ["locale"], :name => "index_customer_page_translations_on_locale"
 
   create_table "customer_pages", :force => true do |t|
     t.string   "header_1"
@@ -814,102 +455,12 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.datetime "updated_at"
   end
 
-  create_table "duplicate_companies", :id => false, :force => true do |t|
-    t.integer  "id"
-    t.string   "company_site"
-    t.string   "company_name"
-    t.string   "company_postcode"
-    t.string   "company_address"
-    t.string   "company_state"
-    t.string   "company_phone"
-    t.string   "company_fax"
-    t.string   "employee_number"
-    t.string   "revenue"
-    t.string   "company_ownership"
-    t.text     "company_overview"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "colonia"
-    t.string   "scian"
-    t.text     "giro"
-    t.string   "year_started"
-    t.string   "company_city"
-    t.string   "source"
-    t.string   "views"
-    t.text     "company_image"
-    t.string   "person_first"
-    t.string   "person_last"
-    t.string   "person_number"
-    t.string   "person_email"
-    t.integer  "rating"
-    t.text     "review_text"
-    t.text     "review_pic"
-    t.text     "deal"
-    t.integer  "review_number"
-    t.string   "microsite_color"
-    t.string   "microsite_theme"
-    t.string   "microsite_review"
-    t.string   "microsite_image"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.string   "source_image"
-    t.integer  "completion"
-    t.string   "company_phone_bak"
-    t.integer  "user_id"
-    t.text     "url_name"
-    t.string   "subdomain"
-    t.text     "address"
-    t.decimal  "lat"
-    t.decimal  "lng"
-    t.boolean  "published"
-    t.string   "linked_in"
-    t.string   "facebook"
-    t.string   "twitter"
-    t.text     "owner_message"
-    t.string   "category_string"
-    t.text     "secondary_address"
-    t.string   "photo_remote_url"
-    t.text     "thumbnail_url"
-    t.string   "thumbnail_complete"
-    t.integer  "ads",                 :limit => 2
-    t.string   "category_giro"
-    t.boolean  "has_image"
-    t.integer  "content_id"
-    t.string   "name_sanitized"
-    t.tsvector "company_name_vector"
-    t.integer  "image_count"
-    t.text     "hours_string"
-    t.integer  "user_views"
-    t.integer  "recommends"
-    t.integer  "parent_id"
-    t.string   "tags",                :limit => 500
-    t.string   "historical_giro",     :limit => 765
-    t.string   "paid_keywords"
-    t.string   "ref"
-    t.integer  "review_user_id"
-    t.string   "review_screen_name"
-    t.integer  "category_id"
-    t.integer  "subcategory_id"
-    t.string   "contributor_ids"
-    t.string   "lada"
-    t.integer  "redirect_id"
-  end
-
-  add_index "duplicate_companies", ["id"], :name => "duplicate_companies_id_idx"
-  add_index "duplicate_companies", ["parent_id"], :name => "redirect_id_idx"
-
   create_table "email_clickthrough_trackers", :force => true do |t|
     t.integer  "email_tracker_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "landing_page"
     t.string   "ref"
-  end
-
-  create_table "email_lead_list", :id => false, :force => true do |t|
-    t.integer "max"
-    t.string  "person_email"
   end
 
   create_table "email_leads", :id => false, :force => true do |t|
@@ -987,6 +538,18 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
   create_table "facebook_monitors", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "facturas", :force => true do |t|
+    t.integer  "company_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "customer_id"
+    t.integer  "order_id"
+    t.float    "value"
+    t.string   "customer_name"
+    t.string   "rfc"
+    t.string   "folio"
   end
 
   create_table "featured_companies", :force => true do |t|
@@ -1143,17 +706,6 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.integer "parent_id"
   end
 
-  create_table "goals", :force => true do |t|
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "good_bad_redirects", :id => false, :force => true do |t|
-    t.integer "good_company_id"
-    t.integer "bad_company_id"
-  end
-
   create_table "homes", :force => true do |t|
     t.string   "title"
     t.datetime "created_at"
@@ -1216,6 +768,7 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.string  "product_option_id"
     t.float   "weight"
     t.decimal "price",             :precision => 10, :scale => 2
+    t.integer "subscription_id"
   end
 
   create_table "keyword_graphs", :force => true do |t|
@@ -1240,16 +793,6 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.integer  "keyword_id"
   end
 
-  create_table "keywords", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
-    t.integer  "user_id"
-    t.integer  "count",      :default => 0
-    t.integer  "percent",    :default => 0
-    t.boolean  "up",         :default => true
-  end
-
   create_table "landings", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -1257,6 +800,8 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
   end
 
   create_table "languages", :force => true do |t|
+    t.string  "name"
+    t.string  "code"
     t.integer "company_id"
   end
 
@@ -1271,11 +816,23 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.integer  "company_id"
     t.string   "company_site"
     t.integer  "emailed"
+    t.string   "refer"
   end
 
   create_table "listings", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "locales", :force => true do |t|
+    t.integer "company_id"
+    t.string  "country_code"
+    t.string  "country_name"
+    t.string  "currency_code"
+    t.boolean "default"
+    t.string  "language_code"
+    t.string  "language_name"
+    t.string  "locale_code"
   end
 
   create_table "mails", :force => true do |t|
@@ -1342,6 +899,7 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.integer "order_custom_field_template_id"
     t.string  "name"
     t.string  "value"
+    t.integer "subscription_id"
   end
 
   create_table "order_log_lines", :force => true do |t|
@@ -1386,7 +944,19 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.integer  "purchaser_user_id"
     t.integer  "purchaser_company_id"
     t.decimal  "total",                             :precision => 10, :scale => 2
+    t.string   "shipping_method"
+    t.datetime "updated_at"
+    t.integer  "subscription_id"
+    t.string   "shipping_country"
+    t.string   "billing_country"
+    t.string   "billing_company_name"
+    t.string   "billing_email"
+    t.string   "billing_phone"
+    t.string   "billing_notorary"
+    t.string   "tracking_id"
   end
+
+  add_index "orders", ["status"], :name => "index_orders_on_status"
 
   create_table "page_grade_jobs", :force => true do |t|
     t.datetime "created_at"
@@ -1465,6 +1035,9 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.datetime "updated_at",            :null => false
     t.integer  "user_id"
     t.boolean  "recieve_emails"
+    t.boolean  "cashier"
+    t.boolean  "sales_note"
+    t.boolean  "reports"
   end
 
   create_table "photos", :force => true do |t|
@@ -1490,10 +1063,6 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
   create_table "premia", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "monthly"
-    t.string   "yearly"
-    t.integer  "state_id"
-    t.string   "mexico"
     t.integer  "company_id"
     t.text     "background_image"
     t.string   "color_scheme"
@@ -1525,6 +1094,7 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.float    "fb_app_id"
     t.string   "google_analytics_id"
     t.string   "profile_id"
+    t.string   "pinterest"
   end
 
   create_table "premium_companies", :force => true do |t|
@@ -1541,13 +1111,18 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
   end
 
   create_table "premium_config_translations", :force => true do |t|
-    t.integer "premium_config_id"
-    t.string  "locale"
-    t.string  "galeria"
-    t.string  "seo_title"
-    t.string  "seo_description"
-    t.string  "seo_keywords"
+    t.integer  "premium_config_id"
+    t.string   "locale"
+    t.string   "seo_description"
+    t.string   "seo_title"
+    t.string   "seo_keywords"
+    t.string   "galeria"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
+
+  add_index "premium_config_translations", ["locale"], :name => "index_premium_config_translations_on_locale"
+  add_index "premium_config_translations", ["premium_config_id"], :name => "index_5909427a0c74ff11bffbb42a53e0af43f14fcdf1"
 
   create_table "premium_configs", :force => true do |t|
     t.datetime "created_at"
@@ -1556,26 +1131,20 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.string   "catalogo",                 :default => "Catálogo"
     t.string   "sobre_nosotros",           :default => "Sobre Nosotros"
     t.string   "galeria",                  :default => "Galería"
-    t.string   "distributor"
     t.integer  "company_id"
     t.integer  "store"
     t.string   "distributor_price"
     t.string   "seo_title"
     t.string   "seo_description"
-    t.text     "seo_keywords"
+    t.string   "seo_keywords"
     t.string   "domain"
     t.integer  "catalog_layout"
     t.integer  "list_layout"
-    t.boolean  "iba_bool"
-    t.string   "shipping_type"
     t.string   "landing"
-    t.string   "shipping_flat_rate"
-    t.string   "shipping_handling_rate"
-    t.boolean  "shipping_enabled"
-    t.string   "redirect_domain"
-    t.string   "page_id"
     t.integer  "default_product_image_id"
-    t.integer  "product_sort"
+    t.string   "contact_name"
+    t.string   "product_sort"
+    t.boolean  "prompt_for_signup"
   end
 
   create_table "premium_styles", :force => true do |t|
@@ -1611,10 +1180,14 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.boolean "custom_design"
     t.boolean "hide_navigation_bar"
     t.boolean "hide_address"
+    t.text    "favicon_url"
     t.integer "product_count_per_page"
-    t.string  "product_price_color"
     t.string  "page_link_color"
+    t.string  "product_price_color"
     t.integer "show_inventory"
+    t.string  "background_color"
+    t.boolean "product_page"
+    t.boolean "show_sku"
   end
 
   create_table "product_categories", :force => true do |t|
@@ -1623,123 +1196,40 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.string  "full_name"
     t.integer "parent_id"
     t.string  "import_category_id"
-    t.string  "import_image_src"
     t.integer "index"
-  end
-
-  create_table "product_category_translations", :force => true do |t|
-    t.integer "product_category_id"
-    t.string  "locale"
-    t.string  "fullname"
-    t.string  "full_name"
-    t.string  "name"
     t.string  "sanitized_name"
     t.string  "url"
+    t.integer "original_resource_id"
+    t.boolean "disabled"
   end
 
-  create_table "product_custom_attributes", :force => true do |t|
-    t.integer "company_id"
-    t.string  "name"
-  end
+  add_index "product_categories", ["parent_id"], :name => "product_category_parent_id_idx"
 
-  create_table "products", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "product_category_translations", :force => true do |t|
+    t.integer  "product_category_id"
+    t.string   "locale"
+    t.string   "url"
     t.string   "name"
-    t.text     "description"
-    t.integer  "contact_id"
-    t.string   "contact_name"
-    t.string   "contact_phone"
-    t.string   "contact_email"
-    t.string   "contact_title"
-    t.string   "buy"
-    t.string   "sell"
-    t.string   "city"
-    t.string   "state"
+    t.string   "full_name"
+    t.string   "sanitized_name"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
-  create_table "profiles", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "prospects", :force => true do |t|
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "questions", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "redirect_image_counts", :id => false, :force => true do |t|
-    t.integer "image_count"
-    t.integer "redirect_id"
-  end
-
-  create_table "registers", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "related_pages", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "page_grader_id"
-    t.string   "mozrank"
-    t.string   "links_in_count"
-    t.string   "site"
-    t.integer  "twitter_rank"
-    t.integer  "twitter_followers"
-    t.integer  "twitter_following"
-    t.integer  "url_count"
-    t.integer  "google_indexed"
-    t.string   "clout"
-    t.string   "twitter"
-    t.string   "facebook"
-    t.string   "blog"
-    t.string   "rss"
-    t.string   "meta_title"
-    t.string   "initial_date"
-    t.string   "external_links"
-    t.string   "links"
-    t.string   "found"
-    t.string   "result_count"
-    t.integer  "text_ratio"
-    t.string   "yahoo_result"
-    t.string   "msn_result"
-    t.string   "google_mx_result"
-    t.integer  "yahoo_indexed"
-    t.string   "yahoo_directory"
-    t.string   "google_local"
-    t.string   "google_analytics"
-    t.string   "xml_sitemap"
-    t.string   "last_google_check"
-    t.integer  "bing_indexed"
-    t.string   "load_time"
-    t.string   "flash"
-    t.text     "page_links"
-    t.text     "subdomain"
-    t.string   "result_count_yahoo"
-    t.string   "uniques"
-    t.string   "visits"
-    t.text     "meta_description"
-    t.text     "meta_keywords"
-    t.string   "engagement_score"
-    t.string   "linking_score"
-    t.string   "engagement_score_dist"
-    t.string   "linking_score_dist"
-    t.string   "total_moz"
-  end
+  add_index "product_category_translations", ["locale"], :name => "index_product_category_translations_on_locale"
+  add_index "product_category_translations", ["product_category_id"], :name => "index_819c187b7261a5628697db0bc50de699f75970bd"
 
   create_table "resource_translations", :force => true do |t|
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
     t.integer  "resource_id"
     t.string   "locale"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
+
+  add_index "resource_translations", ["locale"], :name => "index_resource_translations_on_locale"
+  add_index "resource_translations", ["resource_id"], :name => "index_resource_translations_on_resource_id"
 
   create_table "resources", :force => true do |t|
     t.datetime "created_at"
@@ -1765,34 +1255,10 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.string   "type"
     t.string   "gallery_category_ids"
     t.text     "link"
+    t.integer  "order_id"
   end
 
   add_index "resources", ["company_id"], :name => "index_resources_on_company_id"
-
-  create_table "reviews", :force => true do |t|
-    t.date     "review_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "company_id"
-    t.string   "type"
-    t.string   "user_id"
-    t.string   "review_user_image"
-  end
-
-  create_table "saved_posts", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-    t.string   "username"
-    t.integer  "post_id"
-    t.text     "post_text"
-    t.string   "post_image"
-    t.text     "text"
-    t.string   "date"
-    t.string   "source"
-    t.string   "image"
-    t.integer  "company_id"
-  end
 
   create_table "services", :force => true do |t|
     t.datetime "created_at"
@@ -1811,36 +1277,17 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.integer  "add_group_id"
   end
 
-  create_table "shipping_infos", :force => true do |t|
-    t.string  "region"
-    t.decimal "price",  :precision => 10, :scale => 2
-  end
-
   create_table "shipping_regions", :force => true do |t|
     t.integer "company_id"
     t.string  "name"
-    t.decimal "price",      :precision => 10, :scale => 2
+    t.decimal "price",         :precision => 10, :scale => 2
+    t.integer "delivery_time"
   end
 
   create_table "similar_pages", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "page_grader_id"
-  end
-
-  create_table "solo_condesa_sources", :force => true do |t|
-    t.string "company_name"
-    t.string "company_address"
-    t.string "colonia"
-    t.string "company_phone"
-    t.string "email"
-    t.string "url"
-    t.string "key"
-    t.float  "lat"
-    t.float  "lng"
-    t.text   "description"
-    t.text   "images"
-    t.string "giro"
   end
 
   create_table "states", :force => true do |t|
@@ -1864,6 +1311,51 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.string   "es"
     t.string   "en"
     t.string   "name"
+  end
+
+  create_table "subscriptions", :force => true do |t|
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.string   "billing_address"
+    t.string   "billing_city"
+    t.string   "billing_colonia"
+    t.string   "billing_country"
+    t.string   "billing_state"
+    t.string   "billing_postal_code"
+    t.string   "billing_phone"
+    t.string   "billing_notorary"
+    t.string   "billing_rfc"
+    t.string   "billing_company_name"
+    t.string   "billing_email"
+    t.string   "shipping_period"
+    t.datetime "previous_shipping_date"
+    t.datetime "next_shipping_date"
+    t.string   "payment_method"
+    t.string   "payment_period"
+    t.datetime "previous_payment_date"
+    t.datetime "next_payment_date"
+    t.datetime "final_payment_date"
+    t.integer  "purchaser_user_id"
+    t.string   "rfc"
+    t.string   "shipping_address"
+    t.string   "shipping_city"
+    t.string   "shipping_colonia"
+    t.string   "shipping_country"
+    t.decimal  "shipping_cost"
+    t.string   "shipping_email"
+    t.string   "shipping_method"
+    t.string   "shipping_name"
+    t.string   "shipping_phone"
+    t.string   "shipping_postal_code"
+    t.string   "shipping_state"
+    t.string   "status"
+    t.string   "transaction_id"
+    t.string   "reference_id"
+    t.decimal  "subtotal"
+    t.decimal  "tax"
+    t.decimal  "total"
+    t.datetime "updated_at"
+    t.boolean  "temporary"
   end
 
   create_table "taggings", :force => true do |t|
@@ -1893,32 +1385,20 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
   add_index "tags", ["tag"], :name => "unique_tag", :unique => true
   add_index "tags", ["tag_vector"], :name => "tag_search_idx"
 
-  create_table "temp_1", :id => false, :force => true do |t|
-    t.integer "_id"
-    t.string  "_es"
-  end
-
-  create_table "temp_companies", :id => false, :force => true do |t|
-    t.integer "id",                             :null => false
-    t.string  "company_name",    :limit => 100
-    t.string  "company_state",   :limit => 100
-    t.string  "company_city",    :limit => 100
-    t.string  "colonia",         :limit => 100
-    t.string  "company_address", :limit => 100
-  end
-
-  create_table "temp_leads", :id => false, :force => true do |t|
-    t.integer  "id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "company_name"
-    t.string   "person_name"
-    t.string   "company_phone"
-    t.string   "person_email"
-    t.integer  "email_tracker_id"
+  create_table "temp_export", :id => false, :force => true do |t|
+    t.integer  "user_id"
+    t.string   "screen_name"
+    t.string   "email"
     t.integer  "company_id"
-    t.string   "company_site"
-    t.integer  "emailed"
+    t.string   "company_name"
+    t.string   "company_phone"
+    t.datetime "created_at"
+  end
+
+  create_table "themes", :force => true do |t|
+    t.string "name"
+    t.string "author"
+    t.text   "categories"
   end
 
   create_table "topics", :force => true do |t|
@@ -1936,45 +1416,36 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.integer  "specific_bool"
   end
 
-  create_table "twitter_feeds", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "username"
-    t.string   "text"
-    t.string   "profile_image_url"
-  end
-
-  create_table "twitter_graphs", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "keyword_id"
-    t.date     "count_date"
-    t.string   "since_id"
-    t.integer  "since"
-  end
-
-  create_table "twitter_monitors", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "user_billing_addresses", :force => true do |t|
+    t.integer "user_id"
+    t.string  "country"
+    t.string  "state"
+    t.string  "city"
+    t.string  "colonia"
+    t.string  "street_address"
+    t.string  "postal_code"
+    t.string  "phone"
+    t.string  "company_name"
+    t.string  "rfc"
   end
 
   create_table "user_billing_infos", :force => true do |t|
     t.integer "user_id"
+    t.string  "billing_info_name"
+    t.string  "address"
+    t.string  "city"
+    t.string  "colonia"
+    t.string  "company_name"
+    t.string  "country"
     t.string  "email"
-    t.string  "telephone"
+    t.string  "external_number"
+    t.string  "internal_number"
+    t.string  "notorary"
+    t.string  "phone"
+    t.string  "postal_code"
+    t.string  "state"
+    t.string  "street"
     t.string  "rfc"
-    t.string  "shipping_name"
-    t.string  "shipping_address"
-    t.string  "shipping_colonia"
-    t.string  "shipping_city"
-    t.string  "shipping_state"
-    t.string  "shipping_postal_code"
-    t.string  "billing_name"
-    t.string  "billing_address"
-    t.string  "billing_colonia"
-    t.string  "billing_city"
-    t.string  "billing_state"
-    t.string  "billing_postal_code"
   end
 
   create_table "user_edits", :force => true do |t|
@@ -1998,84 +1469,70 @@ ActiveRecord::Schema.define(:version => 20121129231426) do
     t.string "password"
   end
 
+  create_table "user_shipping_addresses", :force => true do |t|
+    t.integer "user_id"
+    t.string  "address_name"
+    t.string  "address"
+    t.string  "city"
+    t.string  "colonia"
+    t.string  "country"
+    t.string  "email"
+    t.string  "external_number"
+    t.string  "intersection"
+    t.string  "internal_number"
+    t.string  "name"
+    t.string  "phone"
+    t.string  "postal_code"
+    t.string  "state"
+    t.string  "street"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "screen_name"
-    t.string   "profession"
     t.string   "email"
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
-    t.string   "level"
-    t.string   "rating"
-    t.date     "date_created"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "action_id"
-    t.integer  "points",               :limit => 8
-    t.string   "perishable_token",                  :default => "",    :null => false
-    t.boolean  "active",                            :default => false, :null => false
+    t.string   "perishable_token",     :default => "",    :null => false
+    t.boolean  "active",               :default => false, :null => false
     t.string   "firstname"
     t.string   "lastname"
-    t.integer  "corporate"
     t.string   "image"
     t.string   "fb_image"
     t.string   "location"
     t.integer  "company_id"
-    t.integer  "city_id"
-    t.integer  "review_count",                      :default => 0
-    t.integer  "friend_count",                      :default => 0
+    t.integer  "review_count",         :default => 0
+    t.integer  "friend_count",         :default => 0
     t.integer  "login_count"
     t.string   "profile_file_name"
     t.string   "profile_content_type"
     t.integer  "profile_file_size"
-    t.string   "twitter_id"
     t.string   "language"
-    t.integer  "location_id"
     t.string   "twitter_image"
-    t.string   "profile_remote_url"
-    t.integer  "state_id"
-    t.integer  "invitation_token"
     t.integer  "invitation_id"
     t.string   "sender_email"
     t.integer  "editor_access"
-    t.string   "editorial_code"
-    t.integer  "total_visits"
-    t.string   "facebook"
     t.string   "sex"
-    t.integer  "image_count",                       :default => 0
-    t.integer  "followers",                         :default => 0
-    t.integer  "thanks",                            :default => 0
-    t.integer  "discovered",                        :default => 0
-    t.integer  "recommend",                         :default => 0
     t.string   "tags"
-    t.text     "interests"
     t.string   "page_id"
+    t.string   "phone"
+    t.integer  "manager_id"
+    t.string   "type"
   end
 
   add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
 
-  create_table "usuarios", :force => true do |t|
-    t.string   "login",                     :limit => 40
-    t.string   "name",                      :limit => 100, :default => ""
-    t.string   "email",                     :limit => 100
-    t.string   "crypted_password",          :limit => 40
-    t.string   "salt",                      :limit => 40
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "remember_token",            :limit => 40
-    t.datetime "remember_token_expires_at"
-    t.string   "api_key",                   :limit => 40,  :default => ""
-  end
-
-  add_index "usuarios", ["login"], :name => "index_usuarios_on_login", :unique => true
-
   create_table "versions", :force => true do |t|
-    t.string   "item_type",  :null => false
-    t.integer  "item_id",    :null => false
-    t.string   "event",      :null => false
+    t.string   "item_type",      :null => false
+    t.integer  "item_id",        :null => false
+    t.string   "event",          :null => false
     t.string   "whodunnit"
     t.text     "object"
     t.datetime "created_at"
+    t.text     "object_changes"
   end
 
   add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"

@@ -1,9 +1,7 @@
 # -*- encoding : utf-8 -*-
 class User < ActiveRecord::Base
 
-  attr_accessible :email, :name, :photo_url
-
-
+  attr_accessible :email, :name, :photo_url, :lastname, :first_name, :password
 
   has_many :goals
   has_many :authentications

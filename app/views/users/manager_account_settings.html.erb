@@ -26,7 +26,7 @@
 <ul class="tickets">
 
 
-
+<% if (@salespeople) && (@salespeople.count > 0) %>
 <% for people in @salespeople %>
 <li class="ticket-data">	
 								<!-- Ticket Overview -->
@@ -35,7 +35,7 @@
 ">
 
 										<li class="ticket-data-ticket">
-											<%= people.name %> <%= people.last_name %>
+											<%= people.firstname %> <%= people.lastname %>
 										</li>
 
 										<li class="ticket-data-user">
@@ -50,6 +50,7 @@
 								</div>
 								<!-- /Ticket Overview -->
 							</li>
+<% end %>
 <% end %>
 
 
@@ -81,7 +82,7 @@
 
 									<h4> Add Salesperson</h4>
 
-<form id="sales-manager" action="/users/add_salesperson" class="form-horizontal">
+<form method="post" id="sales-manager" action="/users/add_salesperson" class="form-horizontal">
 
 <% if @user %>
 <input type="hidden" value="<%= @user.id %>" name="user_id" />
@@ -90,13 +91,13 @@
   <div class="control-group">
     <label class="control-label" for="inputPassword"> First Name</label>
     <div class="controls">
-      <input type="text" id="inputPassword" name="user[name]" placeholder="First Name">
+      <input type="text" id="inputPassword" name="user[firstname]" placeholder="First Name">
     </div>
   </div>
   <div class="control-group">
     <label class="control-label" for="inputassword"> Last Name</label>
     <div class="controls">
-      <input type="text" id="inputassword" name="user[last_name]" placeholder="Last Name">
+      <input type="text" id="inputassword" name="user[lastname]" placeholder="Last Name">
     </div>
   </div>
   <div class="control-group">
@@ -136,14 +137,16 @@
 
 <ul class="tickets">
 
+<% if (@locations) && (@locations.count > 0) %>
 
+<% for office in @locations %>
 <li class="ticket-data">	
 								<!-- Ticket Overview -->
 								<div class="ticket-overview">
 									<ul style="
 ">
 										<li class="ticket-data-ticket">
-											New York, NY
+											<%= office.name %>
 										</li>
 
 										<li class="ticket-data-user">
@@ -157,6 +160,8 @@
 								
 								
 							</li>
+<% end %>
+<% end %>
 
 <li class="ticket-data">
                                                                 <!-- Ticket Overview -->
@@ -185,7 +190,7 @@
 
 									<h4> Office Location</h4>
 
-<form class="form-horizontal" id="location-form">
+<form class="form-horizontal" id="location-form" method="post">
   <div class="control-group">
     <label class="control-label" for="inputPassword"> First Name</label>
     <div class="controls">
