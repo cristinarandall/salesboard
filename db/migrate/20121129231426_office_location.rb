@@ -2,8 +2,8 @@ class OfficeLocation < ActiveRecord::Migration
   def up
 
 
-add_column :office_locations, :location, :string
-add_column :office_locations, :name, :string
+add_column :office_locations, :manager_id, :int
+
   end
 
   def down

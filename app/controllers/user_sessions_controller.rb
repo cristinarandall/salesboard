@@ -21,23 +21,38 @@ end
 
 
 def create_new 
-@user = User.new(params[:user])
 
-if @user.save
-redirect_to "/new/" + @user.id.to_s
-else
-redirect_to "/register?exist=true"
+
+        
+if params[:role].eql?"manager"
+	@user = Manager.new(params[:user])
+	@user.active = true
+	if @user.save
+	@user_session =  UserSession.create!(@user)
+	redirect_to "/new/" + @user.id.to_s
+	else
+	redirect_to "/register?exist=true"
+	end
+
+elsif params[:role].eql?"salesperson"
+	@user = SalesPerson.new(params[:user])
+	@user.active = true	
+        if @user.save
+        @user_session =  UserSession.create!(@user)
+        redirect_to "/goals/" + @user.id.to_s
+        else
+        redirect_to "/register?exist=true"
+	end
 end
+
 
 end
    
 def new
 
-#@user = User.create(params[:user])
 
 
 
-#    redirect_to "/new/" + @user.id.to_s
     respond_to do |format|
       format.html # index.html.erb
     end

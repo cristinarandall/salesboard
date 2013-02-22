@@ -706,6 +706,14 @@ ActiveRecord::Schema.define(:version => 20130222045511) do
     t.integer "parent_id"
   end
 
+  create_table "goals", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "name"
+    t.integer  "quantity"
+  end
+
   create_table "homes", :force => true do |t|
     t.string   "title"
     t.datetime "created_at"
@@ -883,6 +891,7 @@ ActiveRecord::Schema.define(:version => 20130222045511) do
     t.datetime "updated_at", :null => false
     t.string   "location"
     t.string   "name"
+    t.integer  "manager_id"
   end
 
   create_table "operation_hours", :force => true do |t|
