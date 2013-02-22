@@ -19,17 +19,28 @@ def index
 
 end
 
+
+def create_new 
+@user = User.new(params[:user])
+
+if @user.save
+redirect_to "/new/" + @user.id.to_s
+else
+redirect_to "/register?exist=true"
+end
+
+end
    
 def new
 
-@user = User.create(params[:user])
+#@user = User.create(params[:user])
 
 
 
-    redirect_to "/new/" + @user.id.to_s
-#    respond_to do |format|
-#      format.html # index.html.erb
-#    end
+#    redirect_to "/new/" + @user.id.to_s
+    respond_to do |format|
+      format.html # index.html.erb
+    end
 
 end
 

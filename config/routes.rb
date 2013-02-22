@@ -7,10 +7,12 @@ Salesboard::Application.routes.draw do
     match '' => 'landings#index'
     match 'admin' => 'admins#index'
     match 'goals' => 'admins#add_goals'
+    match 'goals/:user_id' => 'admins#add_goals'
     match 'leaderboard' => 'admins#leaderboard'
     match 'new' => 'users#new'
     match '/new/:user_id' => 'users#new'
     match '/users/add_salesperson' => 'users#add_salesperson'
+    match '/user_sessions/create_new' => 'user_sessions#create_new'
 
     match 'register' => 'user_sessions#new'
     match 'settings' => 'users#manager_account_settings'

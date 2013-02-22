@@ -192,9 +192,9 @@
 
 <form class="form-horizontal" id="location-form" method="post">
   <div class="control-group">
-    <label class="control-label" for="inputPassword"> First Name</label>
+    <label class="control-label" for="inputPassword"> Name</label>
     <div class="controls">
-      <input type="text" id="inputPassword" placeholder="First Name">
+      <input type="text" id="inputPassword" name="location[name]" placeholder="First Name">
     </div>
   </div>
 
@@ -202,22 +202,18 @@
     <label class="control-label" for="inputPassword"> Office Location</label>
     <div class="controls">
 
-
-
+      <input type="text" id="inputPassword" name="location[location]" placeholder="First Name">
 <div class="dropdown">
+<!--
   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown trigger</a>
   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
     <li><a> City 1</a></li>
     <li><a> City 2</a></li>
   </ul>
+-->
 </div>
-
     </div>
   </div>
-
-
-
-
   <div class="control-group">
     <div class="controls">
       <a onclick="$('#location-form').submit();" class="btn-large btn btn-the-salmon-dance-3" style="font-size: 21px;"> Add Office Location</a>

@@ -426,12 +426,12 @@ Benchmark your individual performance with Salesforce data.
                 <tbody>
                   <tr>
                     <td>
-<form id="register-form" action="/user_sessions/new" >
+<form id="register-form" method="post" action="/user_sessions/create_new" >
 <ul>
                         <li> First Name</li>
-                        <li><input type="text" name="user[name]" class="name"/></li>
+                        <li><input type="text" name="user[firstname]" class="name"/></li>
                         <li> Last Name</li>
-                        <li> <input type="text" name="user[last_name]" class="last_name"/> </li>
+                        <li> <input type="text" name="user[lastname]" class="last_name"/> </li>
                         <li> Email Address</li>
                         <li> <input type="email" name="user[email]" class="email"/></li>
                         <li> Password</li>
