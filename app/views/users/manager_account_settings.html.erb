@@ -26,31 +26,36 @@
 <ul class="tickets">
 
 
+
+<% for people in @salespeople %>
 <li class="ticket-data">	
 								<!-- Ticket Overview -->
 								<div class="ticket-overview">
 									<ul style="
 ">
+
 										<li class="ticket-data-ticket">
-											Jorge Soto
+											<%= people.name %> <%= people.last_name %>
 										</li>
 
 										<li class="ticket-data-user">
-											Best Deals Ltd.
+											<%= people.company %> 
 										</li>
 										<li class="ticket-data-priority">
 											<span class="tag red">Delete</span>
 										</li>
 									</ul>
+
+
 								</div>
 								<!-- /Ticket Overview -->
-								
-								
 							</li>
+<% end %>
+
 
 <li class="ticket-data">
                                                                 <!-- Ticket Overview -->
-                                                                <div class="ticket-overview">
+                                                                <div class="ticket-overview" style="display:none;">
                                                                         <ul style="
 ">
                                                                                 <li class="ticket-data-ticket">
@@ -155,7 +160,7 @@
 
 <li class="ticket-data">
                                                                 <!-- Ticket Overview -->
-                                                                <div class="ticket-overview">
+                                                                <div class="ticket-overview" style="display:none;">
                                                                         <ul style="
 ">
                                                                                 <li class="ticket-data-ticket">
