@@ -6,7 +6,7 @@ class OfficeLocation < ActiveRecord::Migration
 #      t.timestamps
 #  end
 
-add_column :sales_people, :manager_id, :int
+add_column :sales_persons, :manager_id, :int
 add_column :users, :company, :string
 
   end

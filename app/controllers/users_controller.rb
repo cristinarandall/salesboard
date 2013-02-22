@@ -158,8 +158,18 @@ redirect_to "/settings/" + @user.id.to_s
 
 end
 
+def manager_account_settings
 
+if params[:user_id]
 
+@salespeople = SalesPerson.find_all_by_manager_id(params[:user_id])
+end
+
+    respond_to do |format|
+      format.html # index.html.erb
+    end
+
+end
 
 
 end
