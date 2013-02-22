@@ -4,14 +4,14 @@ development:
   adapter: postgresql
   database: test
   pool: 5
-  username: postgres
+  username: cristina
   password: 
 
 production:
   adapter: postgresql
   database: test
   pool: 5
-  username: postgres
+  username: cristina
   password:
  
 # Warning: The database defined as "test" will be erased and

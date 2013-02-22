@@ -7,7 +7,7 @@ class AddUser < ActiveRecord::Migration
 #      t.timestamps
 #  end
 
-add_column :users, :photo_url, :text
+add_column :users, :last_name, :string
   end
 
   def down
