@@ -1,19 +1,17 @@
 
-
 <section role="main" class="page-wrapper">
 
 
 <section id="dashboard" class="goal-setting">
- 		 
-			
     <h1 style="width: 200px;margin-left: 20px;"> My Goal Setting</h1>        
-            
- 
-                                  
-			
 		</section>
 
 
+
+<% if params[:save] %>
+
+<div style="width: 490px; margin-left: 20px;" class="alert alert-info"> Goal successfully added</div>
+<% end %>
 
 
 <article style="margin-top: 0px;padding-top: 0px;" class="goal-setting content-box col-2 clear-rm">
@@ -25,26 +23,36 @@
 					<!-- Accordion Tab -->
 					<li class="add-goal">
 						<a class="accordion-switch" href=""><h3>  Prospecting</h3><%= image_tag("settings.png", :class=>"settings") %></a>
-						<div style="display: block; " class="fold-out">
+						<div style="display: none; " class="fold-out">
 							
 
 
-<form class="horizontal-form">
+<form class="horizontal-form goals-form" method="post" action="/admins/add_new_goal">
 <fieldset>
 <dl>
+<input type="hidden" value="Prospecting" name="topic" />
+<input type="hidden" value="<%= params[:user_id] %>" name="user_id" />
 
 <dt><label> Enter you goals</label></dt>
 <dd>
 </dd>
 <dt><label> Leads</label></dt>
-<dd><input type="text" class="small" name="values[1]" value=""></dd>
-<input type="hidden" class="small" name="values[1]" value="">
-<dt><label> Contacts</label></dt><dd><input type="text" class="small" name="values[1]" value=""></dd>
-<dt><label> Accounts</label></dt><dd><input type="text" class="small" name="values[1]" value=""></dd>
+<dd><input type="text" class="small" name="values[]" value=""></dd>
+<input type="hidden" class="small" name="names[]" value="Leads">
+<dt><label> Contacts</label></dt><dd>
+
+<input type="text" class="small" name="values[]" value="">
+<input type="hidden" class="small" name="names[]" value="Contacts">
+
+</dd>
+<dt><label> Accounts</label></dt><dd>
+
+<input type="text" class="small" name="values[]" value="">
+<input type="hidden" class="small" name="names[]" value="Accounts">
+</dd>
 <dt><label> </label></dt>
 <dd>
-<button class="gray">Save</button>
-
+<button class="gray submit-trigger">Save</button>
 </dd>
 <dl>
 </fieldset>
@@ -59,26 +67,34 @@
 <%= image_tag("settings.png", :class=>"settings") %>
 </a>
 						<div style="display: none; " class="fold-out">
-<form class="goal-form horizontal-form">
-<input type="hidden" name="topic" value="emailing"/>
+<form method="post" action="/admins/add_new_goal" class="goal-form horizontal-form">
+<input type="hidden" name="topic" value="Emailing"/>
+<input type="hidden" value="<%= params[:user_id] %>" name="user_id" />
+
 <fieldset>
+
 <dl>
-<dt><label> Leads</label></dt>
+<dt><label> New Email Sent</label></dt>
 <dd><input type="text" class="small" name="values[1]" value=""></dd>
-<input type="hidden" name="names[1]" value="Leads" />
+<input type="hidden" name="names[1]" value="New Email Sent" />
 
-<dt><label> Contacts</label></dt><dd><input type="text" class="small" name="values[2]" value=""></dd>
-<input type="hidden" name="names[2]" value="Leads" />
+<dt><label> Email Callback</label></dt><dd><input type="text" class="small" name="values[2]" value=""></dd>
+<input type="hidden" name="names[2]" value="Email Callback" />
 
 
-<dt><label> Accounts</label></dt><dd><input type="text" class="small" name="values[3]" value=""></dd>
-<input type="hidden" name="names[3]" value="Leads" />
+<dt><label> Email Conversion</label></dt><dd><input type="text" class="small" name="values[3]" value=""></dd>
+<input type="hidden" name="names[3]" value="Email Conversion" />
+
+<dt><label> </label></dt>
+<dd>
+<button class="gray submit-trigger">Save</button>
+</dd>
+
 <dl>
 </fieldset>
 
 </form>
-
-						</div>
+</div>
 					</li>
 					<!-- /Accordion Tab -->
 					
@@ -89,17 +105,41 @@
 </a>
 						<div style="display: block; " class="fold-out">
 
-<form class="horizontal-form">
+<form class="horizontal-form action="/admins/add_new_goal" class="goal-form horizontal-form">
+<input type="hidden" name="topic" value="Calling"/>
+<input type="hidden" value="<%= params[:user_id] %>" name="user_id" />
 <fieldset>
 <dl>
-<dt><label> Leads</label></dt>
-<dd><input type="text" class="small" name="" value=""></dd>
+<dt><label> New Call Made</label></dt>
+<dd><input type="text" class="small" name="values[]" value=""></dd>
+<input type="hidden" name="names[]" value="New Call Made" />
 
-<dt><label> Contacts</label></dt><dd><input type="text" class="small" name="" value=""></dd>
 
-<dt><label> Accounts</label></dt><dd><input type="text" class="small" name="" value=""></dd>
+<dt><label> Callback</label></dt><dd><input type="text" class="small" name="values[]" value=""></dd>
+<input type="hidden" name="names[]" value="Callback" />
+
+<dt><label> Call Conversation </label></dt><dd><input type="text" class="small" name="values[]" value=""></dd>
+<input type="hidden" name="names[]" value="Call Conversation" />
+
+<dt><label> First Call Scheduled </label></dt><dd><input type="text" class="small" name="values[]" value=""></dd>
+<input type="hidden" name="names[]" value="First Call Scheduled" />
+
+<dt><label> First Call Executed </label></dt><dd><input type="text" class="small" name="values[]" value=""></dd>
+<input type="hidden" name="names[]" value="First Call Executed" />
+
+
+<dt><label> </label></dt>
+<dd>
+<button class="gray submit-trigger">Save</button>
+
+</dd>
 
 <dl>
+
+
+
+
+
 </fieldset>
 
 </form>
@@ -110,21 +150,28 @@
 					
 					<!-- Accordion Tab -->
 					<li class="add-goal">
-						<a class="accordion-switch" href=""><h3> Tweeting</h3>
+						<a class="accordion-switch" href=""><h3> Meetings</h3>
 <%= image_tag("settings.png", :class=>"settings") %>
 </a>
 						<div style="display: none; " class="fold-out">
 
 
-<form class="horizontal-form">
+<form class="horizontal-form goals-form" method="post" action="/admins/add_new_goal" >
 <fieldset>
 <dl>
-<dt><label> Leads</label></dt>
-<dd><input type="text" class="small" name="" value=""></dd>
 
-<dt><label> Contacts</label></dt><dd><input type="text" class="small" name="" value=""></dd>
+<dt><label> Meeting Scheduled</label></dt><dd><input type="text" class="small" name="values[]" value=""></dd>
 
-<dt><label> Accounts</label></dt><dd><input type="text" class="small" name="" value=""></dd>
+<input type="hidden" class="small" name="names[]" value="Meeting Scheduled" />
+
+<dt><label> Meeting Executed</label></dt><dd><input type="text" class="small" name="values[]" value=""></dd>
+<input type="hidden" class="small" name="names[]" value="Meeting Executed">
+
+<dt><label>
+</label></dt>
+<dd>
+<button class="gray submit-trigger">Save</button>
+</dd>
 
 <dl>
 </fieldset>
@@ -141,15 +188,26 @@
 <%= image_tag("settings.png", :class=>"settings") %>
 </a>
                                                 <div style="display: none; " class="fold-out">
-<form class="horizontal-form">
+<form class="horizontal-form goals-form" method="post" action="/admins/add_new_goal" >
+
+<input type="hidden" value="Proposals" name="topic" />
+<input type="hidden" value="<%= params[:user_id] %>" name="user_id" />
+
 <fieldset>
 <dl>
-<dt><label> Leads</label></dt>
-<dd><input type="text" class="small" name="" value=""></dd>
+<dt><label> Proposal Created </label></dt>
+<dd><input type="text" class="small" name="names[]" value=""></dd>
+<input type="hidden" class="small" name="values[]" value="Proposal Created">
 
-<dt><label> Contacts</label></dt><dd><input type="text" class="small" name="" value=""></dd>
+<dt><label> Proposal Submitted</label></dt><dd><input type="text" class="small" name="names[]" value=""></dd>
+<input type="hidden" class="small" name="values[]" value="Proposal Submitted">
 
-<dt><label> Accounts</label></dt><dd><input type="text" class="small" name="" value=""></dd>
+
+<dt><label> </label></dt>
+<dd>
+<button class="gray submit-trigger">Save</button>
+
+</dd>
 
 <dl>
 </fieldset>
@@ -158,24 +216,31 @@
 
                                                 </div>
                                         </li>
-                                        <!-- /Accordion Tab -->
-
-
-                                        <!-- Accordion Tab -->
                                         <li class="add-goal">
                                                 <a class="accordion-switch" href=""><h3>  Deals</h3>
 <%= image_tag("settings.png", :class=>"settings") %>
 </a>
                                                 <div style="display: none; " class="fold-out">
-<form class="horizontal-form">
+<form class="horizontal-form  goals-form" method="post" action="/admins/add_new_goal" >
+
+<input type="hidden" value="Deals" name="topic" />
+<input type="hidden" value="<%= params[:user_id] %>" name="user_id" />
 <fieldset>
 <dl>
-<dt><label> Leads</label></dt>
-<dd><input type="text" class="small" name="" value=""></dd>
+<dt><label> Active</label></dt>
+<dd><input type="text" class="small" name="values[]" value=""></dd>
+<input type="hidden" name="names[]" value="Active" />
+<dt><label> Won</label></dt><dd><input type="text" class="small" name="values[]" value=""></dd>
+<input type="hidden" name="names[]" value="Won" />
 
-<dt><label> Contacts</label></dt><dd><input type="text" class="small" name="" value=""></dd>
+<dt><label> Lost</label></dt><dd><input type="text" class="small" name="values[]" value=""></dd>
+<input type="hidden" name="names[]" value="Lost" />
+<dt><label> 
+</label></dt>
+<dd>
+<button class="gray submit-trigger">Save</button>
+</dd>
 
-<dt><label> Accounts</label></dt><dd><input type="text" class="small" name="" value=""></dd>
 
 <dl>
 </fieldset>
@@ -199,4 +264,12 @@
 </section>
 
 
+<script>
 
+$(".submit-trigger").bind("click", function(e) {
+
+
+$(this).parents("form").submit();
+});
+
+</script>

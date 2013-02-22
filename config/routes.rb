@@ -13,7 +13,7 @@ Salesboard::Application.routes.draw do
     match '/new/:user_id' => 'users#new'
     match '/users/add_salesperson' => 'users#add_salesperson'
     match '/user_sessions/create_new' => 'user_sessions#create_new'
-
+    match 'admins/add_new_goal' => 'admins#add_new_goal'
     match 'register' => 'user_sessions#new'
     match 'settings' => 'users#manager_account_settings'
     match '/settings/:user_id' => 'users#manager_account_settings'

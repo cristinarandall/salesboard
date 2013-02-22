@@ -3,7 +3,9 @@ class AddGoals < ActiveRecord::Migration
 
 
 
-add_column :goals, :topic_id, :int
+add_column :goals, :total, :int
+
+
   end
 
   def down

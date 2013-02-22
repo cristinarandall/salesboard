@@ -712,6 +712,8 @@ ActiveRecord::Schema.define(:version => 20130222045511) do
     t.datetime "updated_at", :null => false
     t.string   "name"
     t.integer  "quantity"
+    t.integer  "topic_id"
+    t.integer  "total"
   end
 
   create_table "homes", :force => true do |t|
