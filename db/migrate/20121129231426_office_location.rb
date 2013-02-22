@@ -1,12 +1,11 @@
 class OfficeLocation < ActiveRecord::Migration
   def up
 
-  create_table :office_locations do |t|
-      t.integer :user_id
-      t.timestamps
-  end
+#  create_table :office_locations do |t|
+#      t.integer :user_id
+#      t.timestamps
+#  end
 
-add_column :users, :manager_id, :int
 add_column :office_locations, :manager_id, :int
 
 add_column :users, :company, :string
