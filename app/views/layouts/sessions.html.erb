@@ -420,23 +420,25 @@ Benchmark your individual performance with Salesforce data.
                 </thead>
                 <tfoot>
                   <tr>
-                    <td><a href="#" id="create-account" class="btn-large btn btn-the-salmon-dance-3"> Create Account</a></td>
+                    <td><a href="#" id="create-account" class="btn-large btn btn-the-salmon-dance-3" onclick="$('#register-form').submit();"> Create Account</a></td>
                   </tr>
                 </tfoot>
                 <tbody>
                   <tr>
-                    <td><ul>
+                    <td>
+<form id="register-form" action="/user_sessions/new" >
+<ul>
                         <li> First Name</li>
-                        <li><input type="text" name="name" class="name"/></li>
+                        <li><input type="text" name="user[name]" class="name"/></li>
                         <li> Last Name</li>
-                        <li> <input type="text" name="last_name" class="last_name"/> </li>
+                        <li> <input type="text" name="user[last_name]" class="last_name"/> </li>
                         <li> Email Address</li>
-                        <li> <input type="email" name="email" class="email"/></li>
+                        <li> <input type="email" name="user[email]" class="email"/></li>
                         <li> Password</li>
-                        <li> <input type="password" name="password" class="password"/></li>
-
-
-                      </ul></td>
+                        <li> <input type="password" name="user[password]" class="password"/></li>
+                      </ul>
+</form>
+</td>
                   </tr>
                 </tbody>
               </table>

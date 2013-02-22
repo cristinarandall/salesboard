@@ -22,9 +22,14 @@ end
    
 def new
 
-    respond_to do |format|
-      format.html # index.html.erb
-    end
+@user = User.create(params[:user])
+
+
+
+    redirect_to "/new/" + @user.id.to_s
+#    respond_to do |format|
+#      format.html # index.html.erb
+#    end
 
 end
 

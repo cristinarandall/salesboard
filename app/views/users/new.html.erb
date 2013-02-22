@@ -56,10 +56,15 @@
 				</ul>                                                          
                                                                              
 
-
-<a href="#" style="font-size: 20px; width: 200px;" class="btn-large btn btn-the-salmon-dance-3" title="button">
+<% if @user %>
+<a href="/settings/<%= @user.id %> " style="font-size: 20px; width: 200px;" class="btn-large btn btn-the-salmon-dance-3" title="button">
 I'm ready, let's go!
-</a>					 
+</a>	
+<% else %>
+<a href="/settings" style="font-size: 20px; width: 200px;" class="btn-large btn btn-the-salmon-dance-3" title="button">
+I'm ready, let's go!
+</a> 
+<% end %>				 
 
 
 	 

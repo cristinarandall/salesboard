@@ -76,34 +76,33 @@
 
 									<h4> Add Salesperson</h4>
 
-<form class="form-horizontal">
+<form id="sales-manager" action="/users/add_salesperson" class="form-horizontal">
+
+<% if @user %>
+<input type="hidden" value="<%= @user.id %>" name="user_id" />
+<% end %>
 
   <div class="control-group">
     <label class="control-label" for="inputPassword"> First Name</label>
     <div class="controls">
-      <input type="text" id="inputPassword" placeholder="First Name">
+      <input type="text" id="inputPassword" name="user[name]" placeholder="First Name">
     </div>
   </div>
-
   <div class="control-group">
     <label class="control-label" for="inputassword"> Last Name</label>
     <div class="controls">
-      <input type="text" id="inputassword" placeholder="Last Name">
+      <input type="text" id="inputassword" name="user[last_name]" placeholder="Last Name">
     </div>
   </div>
-
   <div class="control-group">
     <label class="control-label" for="inputEmail">Email</label>
     <div class="controls">
-      <input type="text" id="inputEmail" placeholder="Email">
+      <input type="text" id="inputEmail" placeholder="Email" name="user[email]" >
     </div>
   </div>
-
-
-
   <div class="control-group">
     <div class="controls">
-      <a type="submit" class="btn-large btn btn-the-salmon-dance-3" style="font-size: 21px;"> Add Salesperson</a>
+      <a onclick="$('#sales-manager').submit()" class="btn-large btn btn-the-salmon-dance-3" style="font-size: 21px;"> Add Salesperson</a>
     </div>
   </div>
 </form>
@@ -181,8 +180,7 @@
 
 									<h4> Office Location</h4>
 
-<form class="form-horizontal">
-
+<form class="form-horizontal" id="location-form">
   <div class="control-group">
     <label class="control-label" for="inputPassword"> First Name</label>
     <div class="controls">
@@ -204,8 +202,6 @@
   </ul>
 </div>
 
-
-
     </div>
   </div>
 
@@ -214,7 +210,7 @@
 
   <div class="control-group">
     <div class="controls">
-      <a type="submit" class="btn-large btn btn-the-salmon-dance-3" style="font-size: 21px;"> Add Salesperson</a>
+      <a onclick="$('#location-form').submit();" class="btn-large btn btn-the-salmon-dance-3" style="font-size: 21px;"> Add Office Location</a>
     </div>
   </div>
 </form>

@@ -129,11 +129,37 @@ end
    
 def new
 
+if params[:user_id]
+@user = User.find(params[:user_id])
+end
     respond_to do |format|
       format.html # index.html.erb
     end
 
 end
+
+
+def add_salesperson
+
+
+if params[:user_id]
+@user = User.find(params[:user_id])
+end
+
+@salesperson = SalesPerson.create(params[:user])
+
+
+redirect_to "/settings/" + @user.id.to_s
+ 
+
+#    respond_ito do |format|
+#      format.html # index.html.erb
+#    end
+
+end
+
+
+
 
 
 end
