@@ -1,5 +1,7 @@
-class AdminsController < ActionController::Base
+class AdminsController < ApplicationController
+
  layout 'admin'
+
 
 def add_new_goal
 
@@ -58,13 +60,16 @@ end
 
 @calling = Topic.find(:first, :conditions=>['name = ?', "Calling"])
 if @calling
-@goals_proposals = Goal.find_all_by_topic_id(@calling.id)
+@goals_calling = Goal.find_all_by_topic_id(@calling.id)
 end
 
 @emailing = Topic.find(:first, :conditions=>['name = ?', "Emailing"])
 if @emailing
-@goals_proposals = Goal.find_all_by_topic_id(@emailing.id)
+@goals_emailing = Goal.find_all_by_topic_id(@emailing.id)
 end
+
+puts @goals_emailing.count.to_s
+
 
 @proposals = Topic.find(:first, :conditions=>['name = ?', "Proposals"])
 if @proposals

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :goals
   has_many :authentications
   acts_as_authentic do |config|
-    #disable_perishable_token_maintenance(true)
+    disable_perishable_token_maintenance(true)
     config.login_field = 'email'
     config.validate_password_field = false
   end

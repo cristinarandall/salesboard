@@ -274,7 +274,7 @@ width:100%;
  					 
 					
 					<!-- Root menu item -->
-					<li style="height: 10px;"><a href="#" class="muon-no-submenu">Logout</a>
+					<li style="height: 10px;"><a href="/signout" class="muon-no-submenu">Logout</a>
 	 
 						
 					</li>
@@ -293,9 +293,10 @@ width:100%;
 
 			<!-- User list -->
 			<ul class="muon-user-list">
-				<li class="muon-user-data">Welcome, <a href="#">Jorge</a></li>
-				<li><a class="muon-signup" title="Messages" href="#">Messages</a></li>
-				 
+
+				<% if current_user %>
+				<li class="muon-user-data">Welcome, <a href="#"><%= current_user.name %></a></li>
+				 <% end %>
 			</ul>
 			
 		</div>

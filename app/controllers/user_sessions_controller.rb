@@ -1,4 +1,4 @@
-class UserSessionsController < ActionController::Base
+class UserSessionsController < ApplicationController
  layout 'sessions'
 
 
@@ -56,6 +56,22 @@ def new
     respond_to do |format|
       format.html # index.html.erb
     end
+
+end
+
+
+
+def destroy
+  puts 'destroying usersession'
+  @user_session = UserSession.find
+  if @user_session
+    @user_session.destroy
+  end
+
+#                respond_to do |format|
+#                        format.html { }
+#                end
+                redirect_to :controller => 'user_sessions', :action => 'new', :success=>"false"
 
 end
 

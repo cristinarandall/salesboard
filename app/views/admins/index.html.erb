@@ -63,7 +63,8 @@
                 
          
 
-<% if @goals_proposals %>
+
+<% if (@goals_proposals.count > 0) && (@goals_proposals.count > 0) %>
 
 
 <% for goal in @goals_proposals %>
@@ -90,7 +91,8 @@
 
 
 <% else %>       
-					<li>
+
+<!--					<li>
                				<p class="stat-title"> New Prospect: Lead</p>     
  				<div class="progress-bar green medium individual-stat">
 					<div style="width:100%;">
@@ -149,6 +151,7 @@
                         
  						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
 					</li>
+-->
 <% end %>                   
  
                                                           
@@ -173,19 +176,15 @@
 				<h2 style="padding-right: 50px; "> Calling</h2>
 
 
- 
-
             </header>
 
 
 			
-			<!-- User Profile - vCard -->
-			<section id="hcard-Kevin-Glenn-Bates"  style="display: block; ">
+ 			<section id="hcard-Kevin-Glenn-Bates"  style="display: block; ">
 				
  
 			
-				<!-- Stats Summary -->
-				<ul class="stats-summary" style="width:470px;float:left;">
+ 				<ul class="stats-summary" style="width:470px;float:left;">
                 
                 <li class="first">
                 
@@ -196,99 +195,47 @@
                 
                 </li>
                 
+  
                 
+   <% if (@goals_calling) && (@goals_calling.count > 0) %>
+   <% for goal in @goals_calling %>                                                       
 					<li>
                     
                     
-               <p class="stat-title"> New Call made</p>     
+               <p class="stat-title"> <%= goal.name %> </p>     
  				<div class="progress-bar green medium individual-stat">
 					<div style="width:100%;">
 						 
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count first">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
  
- 					<li>
-                    
-                    
-               <p class="stat-title">Callback</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
 
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
+ 				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
 						<span>80<sup>%</sup></span>
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count">17</strong>
-						<strong class="stats-count second">20</strong>
+                     
+						<strong class="stats-count first"><%= goal.total %></strong>
+						<strong class="stats-count second"><%= goal.quantity %></strong>
                         
  						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
 					</li>
-                    
-                                       
- 					<li>
-                    
-                    
-               <p class="stat-title"> Call Conversation</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar blue medium individual-stat">
-					<div style="width:100%;">
-						<span>100<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
+  <% end %>                  
+ <% else %>
+ 
+   
                                                           
                                                                              
-					 
+	<% end %>				 
 				</ul>
-				<!-- /Stats Summary -->
+ 
 
 
-
+   <% if (@goals_calling) && (@goals_calling.count > 3) %>
 
 			
-				<!-- Stats Summary -->
-				<ul class="stats-summary" style="width:470px;float:right;position:absolute;right:0px;">
+ 				<ul class="stats-summary" style="width:470px;float:right;position:absolute;right:0px;">
                 
                 <li class="first">
                 
@@ -300,65 +247,36 @@
                 </li>
                 
                 
+                
+ <% for goal in @goals_calling %>               
 					<li>
                     
                     
-               <p class="stat-title"> First Call Scheduled</p>     
+               <p class="stat-title"> <%= goal.name %></p>     
  				<div class="progress-bar green medium individual-stat">
 					<div style="width:100%;">
 						 
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count first">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
  
- 					<li>
-                    
-                    
-               <p class="stat-title">First Call Executed</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
 
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar red medium individual-stat">
+ 				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
 						<span>80<sup>%</sup></span>
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count">17</strong>
-						<strong class="stats-count second">20</strong>
+                     
+						<strong class="stats-count first"> <%= goal.total %></strong>
+						<strong class="stats-count second"><%= goal.quantity %></strong>
                         
  						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
 					</li>
                     
-                                       
- 				                                               
+                                         
+ 	<% end %>			                                               
 					 
 				</ul>
-				<!-- /Stats Summary -->
-                
+<% end %>                
 	 
 				
 			</section>
@@ -393,34 +311,47 @@
                 </li>               
                 
                 
-                
+               
+<% if (@goals_emailing) && (@goals_emailing.count > 0) %> 
+
+<% for goal in @goals_emailing %>
+                         <li>
+               <p class="stat-title"> <%= goal.name %></p>    
+                                <div class="progress-bar green medium individual-stat">
+                                        <div style="width:100%;">
+                                        </div>
+                                </div>
+                                <div class="progress-bar red medium individual-stat">
+                                        <div style="width:40%;">
+                                                <span>80<sup>%</sup></span>
+                                        </div>
+                                </div>
+                                                <strong class="stats-count first"> <%= goal.quantity %></strong>
+                                                <strong class="stats-count second"><%= goal.total %></strong>
+                                                <a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
+                                        </li>
+
+<% end %>
+
+<% else %>
+
+<!--
 					<li>
-                    
-                    
                <p class="stat-title"> New Email Sent</p>     
  				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
+					<div style="width:100%;">						 
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
 				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
 						<span>80<sup>%</sup></span>
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-                    
 						<strong class="stats-count first">17</strong>
 						<strong class="stats-count second">20</strong>
-                        
  						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
 					</li>
-                    
- 
+
  					<li>
                     
                     
@@ -430,16 +361,13 @@
 						 
 					</div>
 				</div>
-				<!-- /Progress Bar -->
 
 
-                    				<!-- Progress Bar -->
 				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
 						<span>80<sup>%</sup></span>
 					</div>
 				</div>
-				<!-- /Progress Bar -->
                     
 						<strong class="stats-count">17</strong>
 						<strong class="stats-count second">20</strong>
@@ -457,28 +385,25 @@
 						 
 					</div>
 				</div>
-				<!-- /Progress Bar -->
 
 
-                    				<!-- Progress Bar -->
 				<div class="progress-bar blue medium individual-stat">
 					<div style="width:100%;">
 						<span>100<sup>%</sup></span>
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-                    
 						<strong class="stats-count">17</strong>
 						<strong class="stats-count second">20</strong>
                         
  						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
 					</li>
                     
-                                                          
+-->
+
+<% end %>                                                          
                                                                              
 					 
 				</ul>
-				<!-- /Stats Summary -->
 
 
 	 
@@ -491,146 +416,81 @@
   
    
     
-     
+     <!--
   <article class="content-box minimizer col-3 salesboard-stat-block">
 			<header>
 				<h2 style="padding-right: 50px; "> Tweeting</h2>
              </header>
 			
-			<!-- User Profile - vCard -->
 			<section id="hcard-Kevin-Glenn-Bates"  style="display: block; ">
-				
- 
-
-
-			
-				<!-- Stats Summary -->
 				<ul class="stats-summary">
                 
                  
                 <li class="first">
-                
                <p class="stat-title header-title"> Goal</p>     
-
                <p class="stat-title header-title second"> Actual</p>     
-
-                
                 </li>               
-                
-                
-                
 					<li>
-                    
-                    
                <p class="stat-title"> Twitter New Tweet</p>     
  				<div class="progress-bar green medium individual-stat">
 					<div style="width:100%;">
-						 
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
 				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
 						<span>80<sup>%</sup></span>
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-                    
 						<strong class="stats-count first">17</strong>
 						<strong class="stats-count second">20</strong>
-                        
  						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
 					</li>
-                    
- 
  					<li>
-                    
-                    
                <p class="stat-title"> Twitter Callback</p>     
  				<div class="progress-bar green medium individual-stat">
 					<div style="width:100%;">
 						 
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
 				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
 						<span>80<sup>%</sup></span>
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-                    
 						<strong class="stats-count">17</strong>
 						<strong class="stats-count second">20</strong>
-                        
  						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
 					</li>
-                    
-                                       
  					<li>
-                    
-                    
                <p class="stat-title"> Twitter Conversation</p>     
  				<div class="progress-bar green medium individual-stat">
 					<div style="width:100%;">
-						 
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
 				<div class="progress-bar blue medium individual-stat">
 					<div style="width:100%;">
 						<span>100<sup>%</sup></span>
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-                    
 						<strong class="stats-count">17</strong>
 						<strong class="stats-count second">20</strong>
                         
  						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
 					</li>
-                    
-                                                          
-                                                                             
-					 
 				</ul>
-				<!-- /Stats Summary -->
-
-
-	 
-				
 			</section>
-			
 		</article>      
-           
-  
-    
+   -->
+
+ 
    <article class="content-box minimizer col-3 salesboard-stat-block">
 			<header>
 				<h2 style="padding-right: 50px; "> Meetings</h2>
              
             </header>
 			
-			<!-- User Profile - vCard -->
 			<section id="hcard-Kevin-Glenn-Bates"  style="display: block; ">
-				
- 
-
-
-			
-				<!-- Stats Summary -->
 				<ul class="stats-summary">
-                
-                 
                 <li class="first">
                 
                <p class="stat-title header-title"> Goal</p>     
@@ -640,61 +500,53 @@
                 
                 </li>               
                 
+               
+<% if (@goals_meetings) && (@goals_meetings.count > 0) %>
                 
-                
+
+<% for goal in @goals_meetings %>
 					<li>
-                    
-                    
-               <p class="stat-title"> Meeting Scheduled</p>     
+               <p class="stat-title"> <%= goal.name %> </p>     
  				<div class="progress-bar green medium individual-stat">
 					<div style="width:100%;">
 						 
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
 				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
 						<span>80<sup>%</sup></span>
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count first">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
+						<strong class="stats-count first"> <%= goal.total %></strong>
+						<strong class="stats-count second"> <%= goal.quantity %></strong>
  						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
 					</li>
-                    
- 
+<% end %>
+
+<% else %>
+
+<!--
  					<li>
-                    
-                    
+
+
+
                <p class="stat-title"> Meeting Executed</p>     
  				<div class="progress-bar green medium individual-stat">
 					<div style="width:100%;">
-						 
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
 				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
 						<span>80<sup>%</sup></span>
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-                    
 						<strong class="stats-count">17</strong>
 						<strong class="stats-count second">20</strong>
-                        
  						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
 					</li>
-                    
+    -->
+
+<% end %>                
                                        
   
                                                           
@@ -741,34 +593,32 @@
                 </li>               
                 
                 
-                
+               
+<% if (@goals_proposals) && (@goals_proposals.count > 0) %>
+
+<% for goal in @goals_proposals %>
 					<li>
-                    
-                    
-               <p class="stat-title"> Proposal Created</p>     
+               <p class="stat-title"> <%= goal.name %> </p>     
  				<div class="progress-bar green medium individual-stat">
 					<div style="width:100%;">
 						 
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
 				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
 						<span>80<sup>%</sup></span>
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count first">17</strong>
-						<strong class="stats-count second">20</strong>
+						<strong class="stats-count first"><%= goal.total %></strong>
+						<strong class="stats-count second"><%= goal.quantity %></strong>
                         
  						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
 					</li>
-                    
+<% end %>                   
+
+<% else %>
  
+<!-- 
  					<li>
                     
                     
@@ -778,32 +628,24 @@
 						 
 					</div>
 				</div>
-				<!-- /Progress Bar -->
 
 
-                    				<!-- Progress Bar -->
 				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
 						<span>80<sup>%</sup></span>
 					</div>
 				</div>
-				<!-- /Progress Bar -->
                     
 						<strong class="stats-count">17</strong>
 						<strong class="stats-count second">20</strong>
                         
  						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
 					</li>
-                    
-                                       
-  
-                                                          
-                                                                             
-					 
+
+-->					 
 				</ul>
-				<!-- /Stats Summary -->
 
-
+<% end %>
 	 
 				
 			</section>
@@ -817,82 +659,59 @@
 				<h2 style="padding-right: 50px; "> Deals</h2>
 			 </header>
 			
-			<!-- User Profile - vCard -->
 			<section id="hcard-Kevin-Glenn-Bates"  style="display: block; ">
-				
- 
-
-
-			
-				<!-- Stats Summary -->
 				<ul class="stats-summary">
-                
-                 
                 <li class="first">
                 
                <p class="stat-title header-title"> Goal</p>     
-
                <p class="stat-title header-title second"> Actual</p>     
-
-                
                 </li>               
                 
                 
-                
+<% if (@goals_deals) && (@goals_deals.count > 0) %>
+               
+<% for goal in @goals_deals %> 
 					<li>
-                    
-                    
-               <p class="stat-title"> Active </p>     
+               <p class="stat-title"> <%= goal.name %> </p>     
  				<div class="progress-bar green medium individual-stat">
 					<div style="width:100%;">
 						 
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
 				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
 						<span>80<sup>%</sup></span>
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count first">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
+						<strong class="stats-count first"> <%= goal.total %></strong>
+						<strong class="stats-count second"> <%= goal.quantity %> </strong>
  						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
 					</li>
+<% end %>                   
+<% else %> 
+ 	
+<!--
+				<li>
                     
  
- 					<li>
-                    
-                    
                <p class="stat-title"> Won </p>     
  				<div class="progress-bar green medium individual-stat">
 					<div style="width:100%;">
 						 
 					</div>
 				</div>
-				<!-- /Progress Bar -->
 
 
-                    				<!-- Progress Bar -->
 				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
 						<span>80<sup>%</sup></span>
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-                    
 						<strong class="stats-count">17</strong>
 						<strong class="stats-count second">20</strong>
                         
  						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
 					</li>
-                    
- 
                                        
   					<li>
                     
@@ -903,24 +722,19 @@
 						 
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
 				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
 						<span>80<sup>%</sup></span>
 					</div>
 				</div>
-				<!-- /Progress Bar -->
-                    
 						<strong class="stats-count">17</strong>
 						<strong class="stats-count second">20</strong>
                         
  						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
 					</li>
-                    
-                                                                                                                                                     
+        -->            
+<% end %>                                                
+                                                                                                     
   
                                                           
                                                                              

@@ -14,7 +14,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="description" content="corporate, business software, app" />
 <meta name="keywords" content="corporate, software, app, business, marketing, landing page, web marketing, internate marketing, seo"/>
-<meta name="author" content="Tansh" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title> Salesboard</title>
 <!-- Fav and touch icons -->
@@ -35,6 +34,14 @@
 <%= javascript_include_tag "jquery-1.7.1.min.js", "modernizr-2.5.3.min.js" %>
 
 <style>
+
+.alert-info{
+width: 500px;
+margin-left: auto;
+margin-right: auto;
+}
+
+
 .tab-content > #home
 {
 display:none;
@@ -97,7 +104,6 @@ font-size: 21px;
       <div class="span8">
         <div class="tabnav-wrapper">
           <ul  id="myTab" class="nav nav-tabs">
-            <li class="active sliderTab"><a href="#home" data-toggle="tab">Home</a></li>
 <!--
             <li><a href="#features" data-toggle="tab">Features</a></li>
             <li><a href="#shots" data-toggle="tab">Shots</a></li>
@@ -112,7 +118,7 @@ font-size: 21px;
             <li><a href="#pricing" data-toggle="tab">Pricing</a></li>
 -->
 
-            <li><a href="#contact" class="omega" data-toggle="tab">Contact</a></li>
+
           </ul>
         </div>
       </div>
@@ -124,6 +130,13 @@ font-size: 21px;
 
 <div class="container">
   <div class="row">
+
+<% if params[:success] %>
+<div class="alert alert-info">
+You have successfully signed out 
+</div> 
+<% end %>
+
     <div class="span12">
       <div style="background: transparent;border: none;" class="box clearfix"> 
 
