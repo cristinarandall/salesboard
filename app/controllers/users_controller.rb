@@ -144,13 +144,14 @@ def add_salesperson
 
 if params[:user_id]
 @user = User.find(params[:user_id])
-end
 
 @salesperson = SalesPerson.create(params[:user])
 
 
 redirect_to "/settings/" + @user.id.to_s
- 
+
+
+end 
 
 #    respond_ito do |format|
 #      format.html # index.html.erb

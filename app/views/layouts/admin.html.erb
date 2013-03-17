@@ -16,6 +16,7 @@ Salesboard Admin
 	<link rel="shortcut icon" href="/favicon.ico">
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 	
+<%= stylesheet_link_tag "bootstrap.min.css" %>
 
 <%= stylesheet_link_tag "style.css" %>
 <%= stylesheet_link_tag "screen.css", "colors.css", "jquery.muon.css", "jquery.tipsy.css", "jquery.wysiwyg.css", "jquery.datatables.css", "jquery.nyromodal.css", "jquery.datepicker.css", "jquery.fileinput.css", "jquery.fullcalendar.css", "jquery.visualize.css", "jquery.snippet.css", "bootstrap-buttons.css", "token-input-facebook.css", "token-input.css" %> 
@@ -187,7 +188,7 @@ cursor: pointer;
 }
 
 .add-goal select {
-width: 120px;
+width: 230px;
 height: 14px;
 font-family: inherit;
 font-size: 14px;
@@ -198,7 +199,9 @@ border: none;
 -webkit-appearance: none;
 appearance: none;
 background: url(../images/select.png) center right no-repeat;
+background-color: #f9f9f9;
 cursor: pointer;
+height: 40px;
 }
 
 .add-goal:hover h3{
@@ -295,7 +298,7 @@ width:100%;
 			<ul class="muon-user-list">
 
 				<% if current_user %>
-				<li class="muon-user-data">Welcome, <a href="#"><%= current_user.name %></a></li>
+				<li class="muon-user-data">Welcome, <a href="#"><%= current_user.firstname %></a></li>
 				 <% end %>
 			</ul>
 			
@@ -352,6 +355,26 @@ width:100%;
 
     <%= javascript_include_tag "libs/selectivizr.js", "jquery/jquery.visualize.js", "jquery/jquery.visualize.tooltip.js", "jquery/jquery.tipsy.js", "jquery/jquery.nyromodal.min.js", "jquery/jquery.wysiwyg.js", "jquery/jquery.datatables.js", "jquery/jquery.datepicker.js", "jquery/jquery.fileinput.js", "jquery/jquery.fullcalendar.min.js", "jquery/jquery.ui.totop.js", "jquery/jquery.ui.totop.js", "jquery/jquery.snippet.js", "jquery/jquery.muonmenu.js", "jquery/jquery.muonmenu.js", "script.js", "bootstrap.js", "jquery.tokeninput.js" %>
 
+
+<div style="display:none;" class="modal fade" id="confirmation-add">
+  <div class="modal-header" style="padding: 10px;height: 40px;">
+
+    <a class="close" data-dismiss="modal">×</a>
+    <h3 id="modal-head" style="color:#676767;font-size: 28px;">
+</h3>
+
+
+</div>
+  <div class="modal-body">
+
+<p class="order-message" style="font-size: 16px;line-height: 20px;" >
+</p>
+</div>
+
+  <div class="modal-footer">
+<a class="btn-limekiln-1 btn btn-large delete-product-modal" style="color:white;"> Add Metric</a>
+  </div>
+ </div>
 
 
 

@@ -869,3 +869,17 @@ input[type="text"], select, textarea {
 
 @media only screen and (min-width: 768px) and (max-width: 959px) {
 }
+
+.add-goal .goal-form select{
+width: 230px;
+background: #f9f9f9;
+background: -moz-linear-gradient(top, #f9f9f9 0%, #f5f5f5 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f9f9), color-stop(100%,#f5f5f5));
+background: -webkit-linear-gradient(top, #f9f9f9 0%,#f5f5f5 100%);
+background: -o-linear-gradient(top, #f9f9f9 0%,#f5f5f5 100%);
+background: -ms-linear-gradient(top, #f9f9f9 0%,#f5f5f5 100%);
+background: linear-gradient(to bottom, #f9f9f9 0%,#f5f5f5 100%);
+}
+
+
+

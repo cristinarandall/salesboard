@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130222045511) do
+ActiveRecord::Schema.define(:version => 20130317011057) do
 
   create_table "access_tokens", :force => true do |t|
     t.integer  "user_id"
@@ -44,6 +44,19 @@ ActiveRecord::Schema.define(:version => 20130222045511) do
     t.string   "application_description"
     t.string   "url"
     t.text     "description_use"
+  end
+
+  create_table "assets", :force => true do |t|
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "name"
+    t.integer  "company_id"
+    t.string   "asset"
+    t.string   "asset_type"
+    t.string   "asset_file_name"
+    t.string   "asset_content_type"
+    t.string   "asset_file_size"
+    t.string   "product_id"
   end
 
   create_table "authentications", :force => true do |t|
@@ -327,6 +340,7 @@ ActiveRecord::Schema.define(:version => 20130222045511) do
     t.integer  "company_id"
     t.integer  "priority"
     t.datetime "created_at"
+    t.string   "page_name"
   end
 
   create_table "deals", :force => true do |t|
@@ -691,6 +705,9 @@ ActiveRecord::Schema.define(:version => 20130222045511) do
     t.integer  "neg_points",              :default => 0
   end
 
+  create_table "file_assets", :force => true do |t|
+  end
+
   create_table "friend_connections", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -714,6 +731,7 @@ ActiveRecord::Schema.define(:version => 20130222045511) do
     t.integer  "quantity"
     t.integer  "topic_id"
     t.integer  "total"
+    t.string   "period"
   end
 
   create_table "homes", :force => true do |t|
@@ -1269,6 +1287,7 @@ ActiveRecord::Schema.define(:version => 20130222045511) do
     t.string   "gallery_category_ids"
     t.text     "link"
     t.integer  "order_id"
+    t.string   "link_name"
   end
 
   add_index "resources", ["company_id"], :name => "index_resources_on_company_id"
@@ -1533,7 +1552,7 @@ ActiveRecord::Schema.define(:version => 20130222045511) do
     t.string   "page_id"
     t.string   "phone"
     t.integer  "manager_id"
-    t.string   "type"
+    t.string   "last_name"
   end
 
   add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"

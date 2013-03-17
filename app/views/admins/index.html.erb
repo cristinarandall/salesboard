@@ -83,7 +83,7 @@
                                 </div>
                                                 <strong class="stats-count first"><%= goal.total %></strong>
                                                 <strong class="stats-count second"><%= goal.quantity %></strong>
-                                                <a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
+                                                <a href="#" class="button stats-view " data-id="<%= goal.id %>" title="View new registrations"> Add</a>
                                         </li>
 
 
@@ -218,8 +218,9 @@
                      
 						<strong class="stats-count first"><%= goal.total %></strong>
 						<strong class="stats-count second"><%= goal.quantity %></strong>
+                                                <a href="#" class="button stats-view " data-id="<%= goal.id %>" title="View new registrations"> Add</a>
                         
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
+
 					</li>
   <% end %>                  
  <% else %>
@@ -268,8 +269,9 @@
                      
 						<strong class="stats-count first"> <%= goal.total %></strong>
 						<strong class="stats-count second"><%= goal.quantity %></strong>
+                                                <a href="#" class="button stats-view " data-id="<%= goal.id %>" title="View new registrations"> Add</a>
                         
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
+
 					</li>
                     
                                          
@@ -328,7 +330,8 @@
                                 </div>
                                                 <strong class="stats-count first"> <%= goal.quantity %></strong>
                                                 <strong class="stats-count second"><%= goal.total %></strong>
-                                                <a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
+                                                <a href="#" class="button stats-view " data-id="<%= goal.id %>" title="View new registrations"> Add</a>
+
                                         </li>
 
 <% end %>
@@ -519,7 +522,8 @@
 				</div>
 						<strong class="stats-count first"> <%= goal.total %></strong>
 						<strong class="stats-count second"> <%= goal.quantity %></strong>
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
+                                                <a href="#" class="button stats-view " data-id="<%= goal.id %>" title="View new registrations"> Add</a>
+
 					</li>
 <% end %>
 
@@ -611,8 +615,9 @@
 				</div>
 						<strong class="stats-count first"><%= goal.total %></strong>
 						<strong class="stats-count second"><%= goal.quantity %></strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
+                                                <a href="#" class="button stats-view " data-id="<%= goal.id %>" title="View new registrations"> Add</a>
+                       
+ 
 					</li>
 <% end %>                   
 
@@ -685,7 +690,8 @@
 				</div>
 						<strong class="stats-count first"> <%= goal.total %></strong>
 						<strong class="stats-count second"> <%= goal.quantity %> </strong>
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
+                                                <a href="#" class="button stats-view " data-id="<%= goal.id %>" title="View new registrations"> Add</a>
+
 					</li>
 <% end %>                   
 <% else %> 

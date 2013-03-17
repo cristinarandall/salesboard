@@ -36,9 +36,21 @@
 <dt><label> Enter you goals</label></dt>
 <dd>
 </dd>
+
+<dt><label> Period</label></dt>
+<dd>
+<select name="period">
+<option value="daily"> Daily </option>
+<option value="weekly"> Weekly </option>
+<option value="monthly"> Monthly </option>
+</select>
+
+</dd>
+
 <dt><label> Leads</label></dt>
 <dd><input type="text" class="small" name="values[]" value=""></dd>
 <input type="hidden" class="small" name="names[]" value="Leads">
+
 <dt><label> Contacts</label></dt><dd>
 
 <input type="text" class="small" name="values[]" value="">
@@ -74,6 +86,16 @@
 <fieldset>
 
 <dl>
+
+<dt><label> Period</label></dt>
+<dd>
+<select name="period">
+<option value="daily"> Daily </option>
+<option value="weekly"> Weekly </option>
+<option value="monthly"> Monthly </option>
+</select>
+</dd>
+
 <dt><label> New Email Sent</label></dt>
 <dd><input type="text" class="small" name="values[1]" value=""></dd>
 <input type="hidden" name="names[1]" value="New Email Sent" />
@@ -110,6 +132,19 @@
 <input type="hidden" value="<%= params[:user_id] %>" name="user_id" />
 <fieldset>
 <dl>
+
+
+<dt><label> Period</label></dt>
+<dd>
+<select name="period">
+<option value="daily"> Daily </option>
+<option value="weekly"> Weekly </option>
+<option value="monthly"> Monthly </option>
+</select>
+</dd>
+
+
+
 <dt><label> New Call Made</label></dt>
 <dd><input type="text" class="small" name="values[]" value=""></dd>
 <input type="hidden" name="names[]" value="New Call Made" />
@@ -160,6 +195,17 @@
 <fieldset>
 <dl>
 
+
+<dt><label> Period</label></dt>
+<dd>
+<select name="period">
+<option value="daily"> Daily </option>
+<option value="weekly"> Weekly </option>
+<option value="monthly"> Monthly </option>
+</select>
+</dd>
+
+
 <dt><label> Meeting Scheduled</label></dt><dd><input type="text" class="small" name="values[]" value=""></dd>
 
 <input type="hidden" class="small" name="names[]" value="Meeting Scheduled" />
@@ -195,6 +241,17 @@
 
 <fieldset>
 <dl>
+
+<dt><label> Period</label></dt>
+<dd>
+<select name="period">
+<option value="daily"> Daily </option>
+<option value="weekly"> Weekly </option>
+<option value="monthly"> Monthly </option>
+</select>
+</dd>
+
+
 <dt><label> Proposal Created </label></dt>
 <dd><input type="text" class="small" name="names[]" value=""></dd>
 <input type="hidden" class="small" name="values[]" value="Proposal Created">
@@ -227,6 +284,16 @@
 <input type="hidden" value="<%= params[:user_id] %>" name="user_id" />
 <fieldset>
 <dl>
+
+<dt><label> Period</label></dt>
+<dd>
+<select name="period">
+<option value="daily"> Daily </option>
+<option value="weekly"> Weekly </option>
+<option value="monthly"> Monthly </option>
+</select>
+</dd>
+
 <dt><label> Active</label></dt>
 <dd><input type="text" class="small" name="values[]" value=""></dd>
 <input type="hidden" name="names[]" value="Active" />

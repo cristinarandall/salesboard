@@ -1,3 +1,31 @@
+
+
+$(document).ready(function(){
+
+
+
+
+	$('.stats-summary a.button').click(function (e) {
+
+	var $selected = $(this);
+
+        $('.stats-summary a.button').each(function() {
+	if ($(this).hasClass("selected")) {
+	$(this).removeClass("selected");
+	}
+	});
+	
+	$selected.addClass("selected");
+
+
+
+	$("#confirmation-add").modal("open");
+
+        });
+
+
+});
+
 $(function(){
 	
 	// For demo only

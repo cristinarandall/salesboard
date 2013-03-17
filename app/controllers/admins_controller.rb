@@ -9,26 +9,32 @@ if params[:user_id]
 
 @user_id = params[:user_id]
 
+@topic_name = params[:topic]
 
+@topic = Topic.find(:all, :conditions=>['name = ?', @topic_name])
+
+if @topic.nil?
 @topic = Topic.create(:name=> params[:topic])
+end
+
 puts "===================="
 puts params[:values][1]
 puts "/===================="
 
 if params[:values][0] && params[:names][0]
-Goal.create(:quantity=>params[:values][0], :name=>params[:names][0], :user_id=> @user_id, :topic_id=> @topic.id)
+Goal.create(:period=>params[:period], :quantity=>params[:values][0], :name=>params[:names][0], :user_id=> @user_id, :topic_id=> @topic.id)
 end
 
 if params[:values][1] && params[:names][1]
-Goal.create(:quantity=>params[:values][0], :name=>params[:names][0], :user_id=> @user_id, :topic_id=> @topic.id)
+Goal.create(:quantity=>params[:values][0],:period=>params[:period], :name=>params[:names][0], :user_id=> @user_id, :topic_id=> @topic.id)
 end
 
 if params[:values][2] && params[:names][2]
-Goal.create(:quantity=>params[:values][0], :name=>params[:names][0], :user_id=> @user_id, :topic_id=> @topic.id)
+Goal.create(:quantity=>params[:values][0], :name=>params[:names][0], :period=>params[:period],:user_id=> @user_id, :topic_id=> @topic.id)
 end
 
 if params[:values][3] && params[:names][3]
-Goal.create(:quantity=>params[:values][0], :name=>params[:names][0], :user_id=> @user_id, :topic_id=> @topic.id)
+Goal.create(:quantity=>params[:values][0], :name=>params[:names][0], :user_id=> @user_id, :period=>params[:period], :topic_id=> @topic.id)
 end
 
 

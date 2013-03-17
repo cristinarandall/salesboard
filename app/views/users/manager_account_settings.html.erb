@@ -84,8 +84,8 @@
 
 <form method="post" id="sales-manager" action="/users/add_salesperson" class="form-horizontal">
 
-<% if @user %>
-<input type="hidden" value="<%= @user.id %>" name="user_id" />
+<% if current_user %>
+<input type="hidden" value="<%= current_user.id %>" name="user_id" />
 <% end %>
 
   <div class="control-group">
@@ -191,6 +191,13 @@
 									<h4> Office Location</h4>
 
 <form class="form-horizontal" id="location-form" method="post">
+
+
+<% if current_user %>
+<input type="hidden" value="<%= current_user.id %>" name="user_id" />
+<% end %>
+
+
   <div class="control-group">
     <label class="control-label" for="inputPassword"> Name</label>
     <div class="controls">
