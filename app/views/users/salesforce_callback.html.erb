@@ -42,11 +42,11 @@
 				</ul>                                                          
  
 
-<% if @user && @user.type.eql?"Manager" %>
+<% if (@user) && (@user.type.eql?"Manager") %>
 <a href="/settings/<%= @user.id %>" style="font-size: 20px; width: 200px;" class="btn-large btn btn-the-salmon-dance-3" title="button">
 I'm ready, let's go!
 </a>
-<% elsif @user && @user.type.eql?"Manager" %>
+<% elsif (@user) && (@user.type.eql?"SalesPerson") %>
 <a href="/goals/<%= @user.id %>" style="font-size: 20px; width: 200px;" class="btn-large btn btn-the-salmon-dance-3" title="button">
 I'm ready, let's go!
 </a>					 
