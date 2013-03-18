@@ -99,4 +99,24 @@ end
 end
 
 
+def add_metric
+
+if current_user
+DataPoint.create(:user_id=>current_user.id, :topic_id=>params[:topic_id], :quantity=>params[:quantity])
+else
+DataPoint.create(:topic_id=>params[:topic_id], :quantity=>params[:quantity])
+end
+
+
+    @return_hash = []
+
+    respond_to do |format|
+        format.js { render :js => @return_hash.to_json }
+    end
+
+
+end
+
+
+
 end

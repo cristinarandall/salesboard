@@ -35,6 +35,15 @@ Salesboard Admin
 
 <style>
 
+.delete-form .red {
+cursor:pointer;
+}
+
+.alert-info{
+width: 500px;
+margin-left: auto;
+margin-right: auto;
+}
 
 #salesforce-connected {
 float: left;
@@ -281,8 +290,13 @@ width:100%;
 					
 					<!-- Root menu item -->
 					<li style="height: 10px;"><a href="/signout" class="muon-no-submenu">Logout</a>
-	 
-						
+						<% if (current_user) && (current_user.type.eql?"SalesPerson") %> 
+	                                        <li style="height: 10px;"><a href="/admin" class="muon-no-submenu">Dashboard</a> 
+                                                <li style="height: 10px;"><a href="/goals/<%= current_user.id %>" class="muon-no-submenu"> Add Metrics</a>
+						<% elsif (current_user) && (current_user.type.eql?"Manager")  %>
+                                                <li style="height: 10px;"><a href="/settings/<%= current_user.id %>" class="muon-no-submenu"> Edit Sales team</a>
+						<% end %>
+
 					</li>
 	 
 	

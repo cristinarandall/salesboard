@@ -139,6 +139,27 @@ end
 end
 
 
+def delete
+
+
+if params[:location_bool]
+
+@current_user = params[:current_user_id]
+OfficeLocation.delete(params[:office_id])
+redirect_to "/settings/" + @current_user + "?delete_location=success"
+
+else
+
+@current_user = params[:current_user_id]
+User.delete(params[:user_id])
+redirect_to "/settings/" + @current_user + "?delete=success"
+end
+
+end
+
+
+
+
 def add_salesperson
 
 
@@ -146,18 +167,47 @@ if params[:user_id]
 @user = User.find(params[:user_id])
 
 @salesperson = SalesPerson.create(params[:user])
-
-
-redirect_to "/settings/" + @user.id.to_s
-
-
+@salesperson.manager_id = params[:user_id]
+@salesperson.save
+redirect_to "/settings/" + @user.id.to_s + "?add=success"
 end 
 
-#    respond_ito do |format|
-#      format.html # index.html.erb
-#    end
+end
+
+def add_location
+
+if params[:user_id]
+@user = User.find(params[:user_id])
+
+
+
+@location = OfficeLocation.create(:location=>params[:location], :name=>params[:name]) #:manager_id=>@user.id, :name=>params[:name], :location=>params[:location])
+@location.manager_id = @user.id
+@location.save
+
+redirect_to "/settings/" + @user.id.to_s + "?location=success"
+end 
 
 end
+
+
+def delete_location
+
+if params[:current_user_id]
+@user = User.find(params[:current_user_id_id])
+
+
+
+@location = OfficeLocation.delete(params[:office_id]) 
+@location.manager_id = @user.id
+@location.save
+
+redirect_to "/settings/" + @user.id.to_s + "?location_delete=success"
+end
+
+end
+
+
 
 def manager_account_settings
 

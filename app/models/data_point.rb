@@ -3,8 +3,9 @@ class DataPoint
     include MongoMapper::Document
 
     key :user_id, Integer
-    key :goal_id, Integer
-    key :count, Integer
+    key :topic_id, Integer
+
+    key :quantity, Integer
 
     timestamps!
 

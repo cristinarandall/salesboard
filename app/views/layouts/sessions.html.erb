@@ -135,6 +135,11 @@ font-size: 21px;
 <div class="alert alert-info">
 You have successfully signed out 
 </div> 
+<% elsif params[:exist] %>
+<div class="alert alert-info">
+Sorry. That email already exists
+
+</div>
 <% end %>
 
     <div class="span12">

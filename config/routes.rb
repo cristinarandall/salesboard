@@ -3,6 +3,7 @@ Salesboard::Application.routes.draw do
   # first created -> highest priority.
 
 
+    match '/users/delete_location ' =>'users#delete_location'
     match '/auth/:provider/callback' => 'users#salesforce_callback'
     match '' => 'landings#index'
     match 'admin' => 'admins#index'
@@ -18,6 +19,8 @@ Salesboard::Application.routes.draw do
     match 'register' => 'user_sessions#new'
     match 'settings' => 'users#manager_account_settings'
     match '/settings/:user_id' => 'users#manager_account_settings'
+    match '/users/delete' => 'users#delete'
+    match '/users/add_location' =>'users#add_location'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

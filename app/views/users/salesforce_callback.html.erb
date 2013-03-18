@@ -37,19 +37,20 @@
 					<li>
 
 
-						<p> 2. Upload Your Profile Photo </p>
+						<p> Salesforce account successfully connected </p>
 					</li>
 				</ul>                                                          
  
-<% if @user && @user.photo_url &&  @user.photo_url.size > 1 %>                                                               
-<img src="<%= @user.photo_url %>" class="sf-profile-iamge" />
-<% end %>
 
-<a href="#" style="font-size: 20px; width: 200px;" class="btn-large btn btn-the-salmon-dance-3" title="button">
-
+<% if @user && @user.type.eql?"Manager" %>
+<a href="/settings/<%= @user.id %>" style="font-size: 20px; width: 200px;" class="btn-large btn btn-the-salmon-dance-3" title="button">
+I'm ready, let's go!
+</a>
+<% elsif @user && @user.type.eql?"Manager" %>
+<a href="/goals/<%= @user.id %>" style="font-size: 20px; width: 200px;" class="btn-large btn btn-the-salmon-dance-3" title="button">
 I'm ready, let's go!
 </a>					 
-
+<% end %>
 
 	 
 				

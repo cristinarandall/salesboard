@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130317011057) do
+ActiveRecord::Schema.define(:version => 20130318204334) do
 
   create_table "access_tokens", :force => true do |t|
     t.integer  "user_id"
@@ -1553,6 +1553,8 @@ ActiveRecord::Schema.define(:version => 20130317011057) do
     t.string   "phone"
     t.integer  "manager_id"
     t.string   "last_name"
+    t.string   "company"
+    t.string   "type"
   end
 
   add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"

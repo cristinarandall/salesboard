@@ -37,7 +37,7 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 gem 'databasedotcom'
-
+gem 'bson_ext'
 gem "authlogic" #, :git => 'git@github.com:james2m/authlogic.git', :branch => 'fix-migrations'
 gem 'omniauth-salesforce'
 gem 'databasedotcom-rails'

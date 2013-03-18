@@ -11,6 +11,25 @@
 		</section>
 
 
+<% if params[:add] %>
+<div class="alert alert-info">
+You have successfully added a sales person
+</div>
+<% elsif params[:delete_location] %>
+<div class="alert alert-info">
+You have successfully deleted an office location
+</div>
+<% elsif params[:delete] %>
+<div class="alert alert-info">
+You have successfully deleted a sales person
+</div>
+
+
+<% elsif params[:location] %>
+<div class="alert alert-info">
+You have successfully added a location
+</div>
+<% end %>
 
 
 <article class="content-box minimizer col-2 salesboard-stat-block">
@@ -41,9 +60,13 @@
 										<li class="ticket-data-user">
 											<%= people.company %> 
 										</li>
+										<form method="post" class="delete-form" action="/users/delete" >
 										<li class="ticket-data-priority">
-											<span class="tag red">Delete</span>
+                                                                                        <input type="hidden" name="current_user_id" value="<%= current_user.id %>" />
+											<input type="hidden" name="user_id" value="<%= people.id %>" />
+											<span class="tag delete-trigger red">Delete</span>
 										</li>
+										</form>
 									</ul>
 
 
@@ -149,11 +172,19 @@
 											<%= office.name %>
 										</li>
 
-										<li class="ticket-data-user">
+				
+						<li class="ticket-data-user">
+							<%= office.location %>
 										</li>
+                                                                                <form method="post" class="delete-form" action="/users/delete">
 										<li class="ticket-data-priority">
-											<span class="tag red">Delete</span>
+                                                                                          <input type="hidden" name="location_bool" value="true" />
+											  <input type="hidden" name="current_user_id" value="<%= current_user.id %>" />
+                                                                                        <input type="hidden" name="office_id" value="<%= office.id %>" />
+											<span class="tag delete-location red">Delete</span>
 										</li>
+										</form>
+
 									</ul>
 								</div>
 								<!-- /Ticket Overview -->
@@ -174,9 +205,13 @@
 
                                                                                 <li class="ticket-data-user">
                                                                                 </li>
+										<form method="post" action="/users/delete_location">
+
                                                                                 <li class="ticket-data-priority">
                                                                                         <span class="tag red">Delete</span>
                                                                                 </li>
+							
+										</form>
                                                                         </ul>
                                                                 </div>
                                                                 <!-- /Ticket Overview -->
@@ -190,8 +225,7 @@
 
 									<h4> Office Location</h4>
 
-<form class="form-horizontal" id="location-form" method="post">
-
+<form class="form-horizontal" id="location-form" method="post" action="/users/add_location">
 
 <% if current_user %>
 <input type="hidden" value="<%= current_user.id %>" name="user_id" />
@@ -201,7 +235,7 @@
   <div class="control-group">
     <label class="control-label" for="inputPassword"> Name</label>
     <div class="controls">
-      <input type="text" id="inputPassword" name="location[name]" placeholder="First Name">
+      <input type="text" id="inputPassword" name="name" placeholder="">
     </div>
   </div>
 
@@ -209,7 +243,7 @@
     <label class="control-label" for="inputPassword"> Office Location</label>
     <div class="controls">
 
-      <input type="text" id="inputPassword" name="location[location]" placeholder="First Name">
+      <input type="text" id="inputPassword" name="location" placeholder="">
 <div class="dropdown">
 <!--
   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown trigger</a>
@@ -257,3 +291,24 @@
 
 
 </section>
+
+<script>
+$(document).ready(function($){
+
+$(".delete-trigger").bind("click", function(){
+	$(this).parents(".delete-form").submit();
+        });
+
+
+$(".delete-location").bind("click", function(){
+        $(this).parents(".delete-form").submit();
+        });
+
+
+
+
+});
+</script>
+
+
+
