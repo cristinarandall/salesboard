@@ -5,7 +5,7 @@ $(document).ready(function(){
 
 
 
-	$('.stats-summary a.button').click(function (e) {
+	$('.stats-summary a.button.stats-view').click(function (e) {
 
 	var $selected = $(this);
 
@@ -19,10 +19,34 @@ $(document).ready(function(){
 
 
 
-	$("#confirmation-add").modal("open");
+	$("#confirmation-add").modal();
 
         });
 
+
+        $('.add-metric-trigger').click(function (e) {
+
+
+
+if ($(".stats-summary li .stats-view").length > 0) {
+var metric_id = $(".stats-summary li .stats-view.selected").attr("data-id");
+ 
+var quantity = $("#confirmation-add #inputEmail").attr("value");      
+
+var url = "quantity=" + quantity + "&metric_id=" + metric_id;
+
+$.ajax({
+  url: "/admin/add_metric" ,
+  type: 'POST',
+  data: url,
+  success: function(data){
+
+  }
+});
+	         
+});
+
+}
 
 });
 
@@ -45,7 +69,7 @@ $(function(){
 	$('.datatable').dataTable({ 'sPaginationType':'full_numbers' });
 	
 	// jQuery jWYSIWYG Editor
-	$('.wysiwyg').wysiwyg({ iFrameClass:'wysiwyg-iframe' });
+	//$('.wysiwyg').wysiwyg({ iFrameClass:'wysiwyg-iframe' });
 
 	// jQuery Custom File Input
 	$('.fileupload').customFileInput();
@@ -54,7 +78,7 @@ $(function(){
 	$('.datepicker').after('<span class="datepicker-icon">&nbsp;</span>').datepick({ pickerClass: 'jq-datepicker' });
 	
 	// jQuery nyroModal
-	$('.modal').nyroModal();
+//	$('.modal').nyroModal();
 
 	// jQuery Snippet (Syntax Highlighter)
 	$('pre.htmlCode').snippet('html',{style:'bright'});
