@@ -23,8 +23,26 @@ end
 def create_new 
 
 
+if params[:signin]
+
+
+
+        @user_session =  UserSession.new(params[:user])
         
-if params[:role].eql?"manager"
+
+	if @user_session.save
+
+	if current_user.type.eql?"SalesPerson"
+	        redirect_to "/goals/" + current_user.id.to_s
+	else
+                redirect_to "/settings/" + current_user.id.to_s
+	end
+
+	else
+        redirect_to "/register?signin=true&login=false"
+	end	
+
+elsif params[:role].eql?"manager"
 	@user = Manager.new(params[:user])
 	@user.active = true
 	if @user.save

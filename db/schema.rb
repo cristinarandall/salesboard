@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130318204334) do
+ActiveRecord::Schema.define(:version => 20130325010616) do
 
   create_table "access_tokens", :force => true do |t|
     t.integer  "user_id"
@@ -1288,6 +1288,7 @@ ActiveRecord::Schema.define(:version => 20130318204334) do
     t.text     "link"
     t.integer  "order_id"
     t.string   "link_name"
+    t.integer  "index"
   end
 
   add_index "resources", ["company_id"], :name => "index_resources_on_company_id"

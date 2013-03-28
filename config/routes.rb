@@ -2,7 +2,7 @@ Salesboard::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-
+    match 'add_metric' => 'admins#add_metric'
     match '/users/delete_location ' =>'users#delete_location'
     match '/auth/:provider/callback' => 'users#salesforce_callback'
     match '' => 'landings#index'

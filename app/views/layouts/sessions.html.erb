@@ -131,7 +131,13 @@ font-size: 21px;
 <div class="container">
   <div class="row">
 
-<% if params[:success] %>
+
+
+<% if (params[:login]) && (params[:login].eql?"false") %>
+<div class="alert alert-info">
+Incorrect password or email
+</div>
+<% elsif params[:success] %>
 <div class="alert alert-info">
 You have successfully signed out 
 </div> 
@@ -146,13 +152,17 @@ Sorry. That email already exists
       <div style="background: transparent;border: none;" class="box clearfix"> 
 
 
+<% if params[:signin] %>
+<h1 style="text-align: center;color:#3B3B3B;font-size:34px;"> Sign in with your account</h1>
+<% else %>
         <h1 style="text-align: center;color:#3B3B3B;font-size:34px;">
 Get started with a Free Account
 </h1>
         <p style="font-size: 24px;text-align: center;" >  
 Sign up in 30 seconds. No credit card required.
-
 </p>
+<% end %>
+
       </div>
     </div>
   </div>
@@ -433,12 +443,21 @@ Benchmark your individual performance with Salesforce data.
               <table style="background: #F2F2F2;" border="0">
                 <thead>
                   <tr>
+<% if params[:signin].nil? %>
                     <th> Sign Up</th>
+<% end %>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr>
-                    <td><a href="#" id="create-account" class="btn-large btn btn-the-salmon-dance-3" onclick="$('#register-form').submit();"> Create Account</a></td>
+                    <td><a href="#" id="create-account" class="btn-large btn btn-the-salmon-dance-3" onclick="$('#register-form').submit();"> 
+
+<% if params[:signin] %>
+Sign in
+<% else %>
+Create Account
+<% end %>
+</a></td>
                   </tr>
                 </tfoot>
                 <tbody>
@@ -446,6 +465,16 @@ Benchmark your individual performance with Salesforce data.
                     <td>
 <form id="register-form" method="post" action="/user_sessions/create_new" >
 <ul>
+
+
+<% if params[:signin] %>
+<input type="hidden" value="true" name="signin"/>
+                        <li> Email Address</li>
+                        <li> <input type="email" name="user[email]" class="email"/></li>
+                        <li> Password</li>
+                        <li> <input type="password" name="user[password]" class="password"/></li>
+
+<% else %>
                         <li> First Name</li>
                         <li><input type="text" name="user[firstname]" class="name"/></li>
                         <li> Last Name</li>
@@ -462,6 +491,8 @@ Benchmark your individual performance with Salesforce data.
   <option value="manager"> Manager</option>
 </select>
 </li>
+<% end %>
+
                       </ul>
 </form>
 </td>

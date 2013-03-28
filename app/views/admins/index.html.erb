@@ -11,11 +11,20 @@
             
  
   <nav style="float:right;margin-top:-40px;margin-right:30px; " >
-					<a href="#" style="width: 80px; font-size: 20px;padding-left: 20px;" class="toggle-options-switch button red active"> Today</a>
+
+ <% if (params[:period]) && (params[:period].eql?("weekly")) %>
+<a href="#" style="width: 80px; font-size: 20px;padding-left: 20px;" class="toggle-options-switch button red active"> Week</a>
+<% elsif (params[:period]) && (params[:period].eql?("monthly")) %>
+<a href="#" style="width: 80px; font-size: 20px;padding-left: 20px;" class="toggle-options-switch button red active"> Month</a>
+<% else %>
+<a href="#" style="width: 80px; font-size: 20px;padding-left: 20px;" class="toggle-options-switch button red active"> Today</a>
+<% end %>
+			
+	
 					<ul class="options-switch" style="display: block; width: 100px; right: 50px;">
-						<li><a href="#">Today </a></li>
-						<li><a href="#">Week </a></li>
-						<li><a href="#">Month</a></li>
+						<li><a href="/admin">Today </a></li>
+						<li><a href="/admin?period=weekly">Week </a></li>
+						<li><a href="/admin?period=monthly">Month</a></li>
 					</ul>
 				</nav>
             
@@ -64,13 +73,29 @@
          
 
 
-<% if (@goals_proposals.count > 0) && (@goals_proposals.count > 0) %>
+<% if (@goals_prospecting) && (@goals_prospecting.count > 0) && (@goals_prospecting.count > 0) %>
 
 
-<% for goal in @goals_proposals %>
+<% for goal in @goals_prospecting %>
 
+	<% total = 0 %>
+	<% if (params[:period]) && (params[:period].eql?("monthly")) %> 
+        	<% @month_ago = Date.today - 30.days %>        
+		<% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>@week_ago..Date.today.end_of_day, :user_id=>current_user.id).all %>
+	<% elsif (params[:period]) && (params[:period].eql?("weekly")) %>	
+		<% @week_ago = Date.today - 7.days %>
+        	<% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>@week_ago..Date.today.end_of_day, :user_id=>current_user.id).all %>
+	<% else %>
+		<% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>Date.today.beginning_of_day..Date.today.end_of_day, :user_id=>current_user.id).all %>
+	<% end %>
+
+	<% for point in @data_points %>
+	<% if point.quantity %>
+	<% total = point.quantity + total %>
+	<% end %>
+	<% end %>
                                         <li>
-                                        <p class="stat-title"> New Prospect: <%= goal.name %></p>
+                                        <p class="stat-title"> <%= goal.name %></p>
                                 <div class="progress-bar green medium individual-stat">
                                         <div style="width:100%;">
 
@@ -81,86 +106,15 @@
                                                 <span>80<sup>%</sup></span>
                                         </div>
                                 </div>
-                                                <strong class="stats-count first"><%= goal.total %></strong>
-                                                <strong class="stats-count second"><%= goal.quantity %></strong>
+                                                <strong class="stats-count first"> <%= goal.quantity %> </strong>
+                                                <strong class="stats-count second">  <%= total %> </strong>
                                                 <a href="#" class="button stats-view " data-id="<%= goal.id %>" title="View new registrations"> Add</a>
                                         </li>
 
-
 <% end %>
 
-
-<% else %>       
-
-<!--					<li>
-               				<p class="stat-title"> New Prospect: Lead</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-						<strong class="stats-count first">17</strong>
-						<strong class="stats-count second">20</strong>
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
- 					<li>
-               <p class="stat-title"> New Prospect: Contact</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-					</div>
-				</div>
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-						<strong class="stats-count">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-                    
-                                       
- 					<li>
-                    
-                    
-               <p class="stat-title"> New Prospect: Account</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-
-
-                    				<!-- Progress Bar -->
-				<div class="progress-bar blue medium individual-stat">
-					<div style="width:100%;">
-						<span>100<sup>%</sup></span>
-					</div>
-				</div>
-				<!-- /Progress Bar -->
-                    
-						<strong class="stats-count">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
--->
 <% end %>                   
- 
-                                                          
-                                                                             
-					 
 				</ul>
-				<!-- /Stats Summary -->
-
-
 	 
 				
 			</section>
@@ -199,6 +153,26 @@
                 
    <% if (@goals_calling) && (@goals_calling.count > 0) %>
    <% for goal in @goals_calling %>                                                       
+
+
+        <% total = 0 %>
+        <% if (params[:period]) && (params[:period].eql?("monthly")) %>
+                <% @month_ago = Date.today - 30.days %>
+                <% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>@week_ago..Date.today.end_of_day, :user_id=>current_user.id).all %>
+        <% elsif (params[:period]) && (params[:period].eql?("weekly")) %>
+                <% @week_ago = Date.today - 7.days %>
+                <% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>@week_ago..Date.today.end_of_day, :user_id=>current_user.id).all %>
+        <% else %>
+                <% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>Date.today.beginning_of_day..Date.today.end_of_day, :user_id=>current_user.id).all %>
+        <% end %>
+
+        <% for point in @data_points %>
+        <% if point.quantity %>
+        <% total = point.quantity + total %>
+        <% end %>
+        <% end %>
+
+
 					<li>
                     
                     
@@ -250,6 +224,25 @@
                 
                 
  <% for goal in @goals_calling %>               
+
+
+        <% total = 0 %>                 
+        <% if (params[:period]) && (params[:period].eql?("monthly")) %>
+                <% @month_ago = Date.today - 30.days %>
+                <% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>@week_ago..Date.today.end_of_day, :user_id=>current_user.id).all %>
+        <% elsif (params[:period]) && (params[:period].eql?("weekly")) %>
+                <% @week_ago = Date.today - 7.days %>
+                <% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>@week_ago..Date.today.end_of_day, :user_id=>current_user.id).all %>
+        <% else %>              
+                <% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>Date.today.beginning_of_day..Date.today.end_of_day, :user_id=>current_user.id).all %>
+        <% end %>                       
+                                
+        <% for point in @data_points %>
+        <% if point.quantity %>
+        <% total = point.quantity + total %>
+        <% end %>                       
+        <% end %>
+
 					<li>
                     
                     
@@ -317,6 +310,25 @@
 <% if (@goals_emailing) && (@goals_emailing.count > 0) %> 
 
 <% for goal in @goals_emailing %>
+
+        <% total = 0 %>                 
+        <% if (params[:period]) && (params[:period].eql?("monthly")) %>
+                <% @month_ago = Date.today - 30.days %>
+                <% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>@week_ago..Date.today.end_of_day, :user_id=>current_user.id).all %>
+        <% elsif (params[:period]) && (params[:period].eql?("weekly")) %>
+                <% @week_ago = Date.today - 7.days %>
+                <% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>@week_ago..Date.today.end_of_day, :user_id=>current_user.id).all %>
+        <% else %>              
+                <% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>Date.today.beginning_of_day..Date.today.end_of_day, :user_id=>current_user.id).all %>
+        <% end %>                       
+                                
+        <% for point in @data_points %>
+        <% if point.quantity %>
+        <% total = point.quantity + total %>
+        <% end %>                       
+        <% end %>
+
+
                          <li>
                <p class="stat-title"> <%= goal.name %></p>    
                                 <div class="progress-bar green medium individual-stat">
@@ -508,6 +520,24 @@
                 
 
 <% for goal in @goals_meetings %>
+
+        <% total = 0 %>                 
+        <% if (params[:period]) && (params[:period].eql?("monthly")) %>
+                <% @month_ago = Date.today - 30.days %>
+                <% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>@week_ago..Date.today.end_of_day, :user_id=>current_user.id).all %>
+        <% elsif (params[:period]) && (params[:period].eql?("weekly")) %>
+                <% @week_ago = Date.today - 7.days %>
+                <% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>@week_ago..Date.today.end_of_day, :user_id=>current_user.id).all %>
+        <% else %>              
+                <% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>Date.today.beginning_of_day..Date.today.end_of_day, :user_id=>current_user.id).all %>
+        <% end %>                       
+                                
+        <% for point in @data_points %>
+        <% if point.quantity %>
+        <% total = point.quantity + total %>
+        <% end %>                       
+        <% end %>
+
 					<li>
                <p class="stat-title"> <%= goal.name %> </p>     
  				<div class="progress-bar green medium individual-stat">
@@ -601,6 +631,24 @@
 <% if (@goals_proposals) && (@goals_proposals.count > 0) %>
 
 <% for goal in @goals_proposals %>
+
+        <% total = 0 %>                 
+        <% if (params[:period]) && (params[:period].eql?("monthly")) %>
+                <% @month_ago = Date.today - 30.days %>
+                <% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>@week_ago..Date.today.end_of_day, :user_id=>current_user.id).all %>
+        <% elsif (params[:period]) && (params[:period].eql?("weekly")) %>
+                <% @week_ago = Date.today - 7.days %>
+                <% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>@week_ago..Date.today.end_of_day, :user_id=>current_user.id).all %>
+        <% else %>              
+                <% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>Date.today.beginning_of_day..Date.today.end_of_day, :user_id=>current_user.id).all %>
+        <% end %>                       
+                                
+        <% for point in @data_points %>
+        <% if point.quantity %>
+        <% total = point.quantity + total %>
+        <% end %>                       
+        <% end %>
+
 					<li>
                <p class="stat-title"> <%= goal.name %> </p>     
  				<div class="progress-bar green medium individual-stat">
@@ -623,33 +671,6 @@
 
 <% else %>
  
-<!-- 
- 					<li>
-                    
-                    
-               <p class="stat-title"> Proposal Submitted</p>     
- 				<div class="progress-bar green medium individual-stat">
-					<div style="width:100%;">
-						 
-					</div>
-				</div>
-
-
-				<div class="progress-bar red medium individual-stat">
-					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
-					</div>
-				</div>
-                    
-						<strong class="stats-count">17</strong>
-						<strong class="stats-count second">20</strong>
-                        
- 						<a href="#" class="button stats-view tooltip" title="View new registrations">View</a>
-					</li>
-
--->					 
-				</ul>
-
 <% end %>
 	 
 				
@@ -676,6 +697,23 @@
 <% if (@goals_deals) && (@goals_deals.count > 0) %>
                
 <% for goal in @goals_deals %> 
+
+        <% total = 0 %>                 
+        <% if (params[:period]) && (params[:period].eql?("monthly")) %>
+                <% @month_ago = Date.today - 30.days %>
+                <% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>@week_ago..Date.today.end_of_day, :user_id=>current_user.id).all %>
+        <% elsif (params[:period]) && (params[:period].eql?("weekly")) %>
+                <% @week_ago = Date.today - 7.days %>
+                <% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>@week_ago..Date.today.end_of_day, :user_id=>current_user.id).all %>
+        <% else %>              
+                <% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>Date.today.beginning_of_day..Date.today.end_of_day, :user_id=>current_user.id).all %>
+        <% end %>                       
+                                
+        <% for point in @data_points %>
+        <% if point.quantity %>
+        <% total = point.quantity + total %>
+        <% end %>                       
+        <% end %>
 					<li>
                <p class="stat-title"> <%= goal.name %> </p>     
  				<div class="progress-bar green medium individual-stat">

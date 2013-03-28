@@ -33,13 +33,15 @@ var metric_id = $(".stats-summary li .stats-view.selected").attr("data-id");
  
 var quantity = $("#confirmation-add #inputEmail").attr("value");      
 
-var url = "quantity=" + quantity + "&topic_id=" + metric_id;
+var url = "quantity=" + quantity + "&goal_id=" + metric_id;
 
 $.ajax({
-  url: "/admin/add_metric" ,
+  url: "/add_metric" ,
   type: 'POST',
   data: url,
   success: function(data){
+
+        $("#confirmation-add").modal("hide");
 
 
   }
