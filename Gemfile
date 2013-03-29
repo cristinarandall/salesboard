@@ -42,6 +42,6 @@ gem "authlogic" #, :git => 'git@github.com:james2m/authlogic.git', :branch => 'f
 gem 'omniauth-salesforce'
 gem 'databasedotcom-rails'
 gem "mongo_mapper"
-gem "mongoid" #, "~> 3.1.2"
+#gem "mongoid" #, "~> 3.1.2"
 # To use debugger
 # gem 'debugger'

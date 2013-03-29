@@ -2,6 +2,7 @@
 #   gem install sqlite3-ruby (not necessary on OS X Leopard)
 development:
   adapter: postgresql
+  host: localhost
   database: test
   pool: 5
   username: cristina
@@ -10,6 +11,7 @@ development:
 production:
   adapter: postgresql
   database: test
+  host: localhost
   pool: 5
   username: cristina
   password:
