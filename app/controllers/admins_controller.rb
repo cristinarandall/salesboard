@@ -121,9 +121,9 @@ def add_metric
 
 
 if current_user
-DataPoint.create(:user_id=>current_user.id, :goal_id=>params[:goal_id], :quantity=>params[:quantity])
+DataPoint.create(:user_id=>current_user.id, :goal_id=>params[:goal_id].to_i, :quantity=>params[:quantity].to_i)
 else
-DataPoint.create(:goal_id=>params[:goal_id], :quantity=>params[:quantity])
+DataPoint.create(:goal_id=>params[:goal_id].to_i, :quantity=>params[:quantity].to_i)
 end
 
 #if @goal.total
