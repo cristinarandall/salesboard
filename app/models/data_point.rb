@@ -3,7 +3,6 @@ class DataPoint
     include MongoMapper::Document
 #  include Mongoid::Document
 #  include Mongoid::Timestamps
-  plugin MongoMapper::Plugins::Timestamps
 
 #    field :user_id, type: Integer
 #    field :topic_id, type: Integer
