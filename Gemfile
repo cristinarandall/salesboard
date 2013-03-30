@@ -41,7 +41,4 @@ gem 'bson_ext'
 gem "authlogic" #, :git => 'git@github.com:james2m/authlogic.git', :branch => 'fix-migrations'
 gem 'omniauth-salesforce'
 gem 'databasedotcom-rails'
-gem "mongo_mapper"
-#gem "mongoid" #, "~> 3.1.2"
-# To use debugger
-# gem 'debugger'
+gem "mongo_mapper", :git => "git://github.com/leofischer/mongomapper"
