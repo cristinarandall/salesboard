@@ -105,11 +105,10 @@
                                         <div style="width:40%;">
 
 						<% if total %>
-                                                <span> <%= ( (total.to_f) / (goal.quantity.to_f)) %><sup>%</sup></span>
+                                                <span> <%= ( (total.to_f) / (goal.quantity.to_f)) *100 %><sup>%</sup></span>
 						<% else %>			
                                                 <span> 0<sup>%</sup></span>
-
-						<% end %>
+						<% end >
                                         </div>
                                 </div>
                                                 <strong class="stats-count first"> <%= goal.quantity %> </strong>
@@ -192,7 +191,14 @@
 
  				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
+
+
+                                                <% if total %>
+                                                <span> <%= ( (total.to_f) / (goal.quantity.to_f))*100 %><sup>%</sup></span>
+                                                <% else %>
+                                                <span> 0<sup>%</sup></span>
+                                                <% end %>
+
 					</div>
 				</div>
                      
@@ -262,7 +268,12 @@
 
  				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
+
+                                                <% if total %>
+                                                <span> <%= ( (total.to_f) / (goal.quantity.to_f)) * 100 %><sup>%</sup></span>
+                                                <% else %>
+                                                <span> 0<sup>%</sup></span>
+                                                <% end %>
 					</div>
 				</div>
                      
@@ -343,7 +354,13 @@
                                 </div>
                                 <div class="progress-bar red medium individual-stat">
                                         <div style="width:40%;">
-                                                <span>80<sup>%</sup></span>
+
+                                                <% if total %>
+                                                <span> <%= ( (total.to_f) / (goal.quantity.to_f)) *100 %><sup>%</sup></span>
+                                                <% else %>
+                                                <span> 0<sup>%</sup></span>
+                                                <% end %>
+
                                         </div>
                                 </div>
                                                 <strong class="stats-count first"> <%= goal.quantity %></strong>
@@ -365,7 +382,13 @@
 				</div>
 				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
+
+                                                <% if total %>
+                                                <span> <%= ( (total.to_f) / (goal.quantity.to_f)) *100 %><sup>%</sup></span>
+                                                <% else %>
+                                                <span> 0<sup>%</sup></span>
+                                                <% end %>
+
 					</div>
 				</div>
 						<strong class="stats-count first">17</strong>
@@ -386,7 +409,12 @@
 
 				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
+
+                                                <% if total %>
+                                                <span> <%= ( (total.to_f) / (goal.quantity.to_f)) *100 %><sup>%</sup></span>
+                                                <% else %>
+                                                <span> 0<sup>%</sup></span>
+                                                <% end %>
 					</div>
 				</div>
                     
@@ -410,7 +438,13 @@
 
 				<div class="progress-bar blue medium individual-stat">
 					<div style="width:100%;">
-						<span>100<sup>%</sup></span>
+
+                                                <% if total %>
+                                                <span> <%= ( (total.to_f) / (goal.quantity.to_f)) *100 %><sup>%</sup></span>
+                                                <% else %>
+                                                <span> 0<sup>%</sup></span>
+                                                <% end %>
+
 					</div>
 				</div>
 						<strong class="stats-count">17</strong>
@@ -459,7 +493,13 @@
 				</div>
 				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
+
+                                                <% if total %>
+                                                <span> <%= ( (total.to_f) / (goal.quantity.to_f)) *100 %><sup>%</sup></span>
+                                                <% else %>
+                                                <span> 0<sup>%</sup></span>
+                                                <% end %>
+
 					</div>
 				</div>
 						<strong class="stats-count first">17</strong>
@@ -475,7 +515,6 @@
 				</div>
 				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
 					</div>
 				</div>
 						<strong class="stats-count">17</strong>
@@ -553,7 +592,13 @@
 				</div>
 				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
+
+                                                <% if total %>
+                                                <span> <%= ( (total.to_f) / (goal.quantity.to_f)) *100 %><sup>%</sup></span>
+                                                <% else %>
+                                                <span> 0<sup>%</sup></span>
+                                                <% end %>
+
 					</div>
 				</div>
 						<strong class="stats-count first"> <%= goal.total %></strong>
@@ -664,7 +709,12 @@
 				</div>
 				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
+
+                                                <% if total %>
+                                                <span> <%= ( (total.to_f) / (goal.quantity.to_f)) *100 %><sup>%</sup></span>
+                                                <% else %>
+                                                <span> 0<sup>%</sup></span>
+                                                <% end %>
 					</div>
 				</div>
 						<strong class="stats-count first"><%= goal.total %></strong>
@@ -729,7 +779,12 @@
 				</div>
 				<div class="progress-bar red medium individual-stat">
 					<div style="width:40%;">
-						<span>80<sup>%</sup></span>
+
+                                                <% if total %>
+                                                <span> <%= ( (total.to_f) / (goal.quantity.to_f)) *100 %><sup>%</sup></span>
+                                                <% else %>
+                                                <span> 0<sup>%</sup></span>
+                                                <% end %>
 					</div>
 				</div>
 						<strong class="stats-count first"> <%= goal.total %></strong>
