@@ -126,13 +126,13 @@ else
 DataPoint.create(:goal_id=>params[:goal_id], :quantity=>params[:quantity])
 end
 
-if @goal.total
-@goal.total = @goal.total + params[:quantity].to_i
-else
-@goal.total = params[:quantity].to_i
-end
+#if @goal.total
+#@goal.total = @goal.total + params[:quantity].to_i
+#else
+#@goal.total = params[:quantity].to_i
+#end
 
-@goal.save
+#@goal.save
 
 
 
