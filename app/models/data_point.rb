@@ -1,6 +1,5 @@
 # -*- encoding : utf-8 -*-
 class DataPoint
-#    include MongoMapper::Document
   include Mongoid::Document
   include Mongoid::Timestamps
 
