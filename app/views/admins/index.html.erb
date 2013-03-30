@@ -81,10 +81,10 @@
 	<% total = 0 %>
 	<% if (params[:period]) && (params[:period].eql?("monthly")) %> 
         	<% @month_ago = Date.today - 30.days %>        
-		<% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>@week_ago..Date.today.end_of_day, :user_id=>current_user.id).all %>
+		<% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>@month_ago.beginning_of_day..Date.today.end_of_day, :user_id=>current_user.id).all %>
 	<% elsif (params[:period]) && (params[:period].eql?("weekly")) %>	
 		<% @week_ago = Date.today - 7.days %>
-        	<% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>@week_ago..Date.today.end_of_day, :user_id=>current_user.id).all %>
+        	<% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>@week_ago.beginning_of_day..Date.today.end_of_day, :user_id=>current_user.id).all %>
 	<% else %>
 		<% @data_points = DataPoint.where(:goal_id=>goal.id, :created_at=>Date.today.beginning_of_day..Date.today.end_of_day, :user_id=>current_user.id).all %>
 	<% end %>
