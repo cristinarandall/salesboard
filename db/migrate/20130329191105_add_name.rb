@@ -1,7 +1,7 @@
 class AddName < ActiveRecord::Migration
   def up
 
-add_column :topics, :name, :string
+add_column :goals, :name, :string
   end
 
   def down
