@@ -41,5 +41,5 @@ gem 'bson_ext'
 gem "authlogic" #, :git => 'git@github.com:james2m/authlogic.git', :branch => 'fix-migrations'
 gem 'omniauth-salesforce'
 gem 'databasedotcom-rails'
-gem "mongoid", ">= 2.2.0"
-#gem "mongo_mapper", :git => "git://github.com/leofischer/mongomapper"
+#gem "mongoid", ">= 2.2.0"
+gem "mongo_mapper", :git => "git://github.com/leofischer/mongomapper"
