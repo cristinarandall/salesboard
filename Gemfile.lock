@@ -1,13 +1,3 @@
-GIT
-  remote: git://github.com/leofischer/mongomapper
-  revision: 1e40d7eb8001a58cf084f5e49a1c309eb054a168
-  specs:
-    mongo_mapper (0.12.0)
-      activemodel (~> 3.0)
-      activesupport (~> 3.0)
-      mongo (~> 1.8.0)
-      plucky (~> 0.6.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -80,8 +70,12 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.21)
-    mongo (1.8.4)
-      bson (~> 1.8.4)
+    mongoid (3.1.2)
+      activemodel (~> 3.2)
+      moped (~> 1.4.2)
+      origin (~> 1.0)
+      tzinfo (~> 0.3.22)
+    moped (1.4.5)
     multi_json (1.7.2)
     multipart-post (1.2.0)
     oauth2 (0.8.1)
@@ -99,9 +93,8 @@ GEM
     omniauth-salesforce (1.0.3)
       omniauth (~> 1.0)
       omniauth-oauth2 (~> 1.0)
+    origin (1.0.11)
     pg (0.15.0)
-    plucky (0.6.3)
-      mongo (~> 1.5)
     polyglot (0.3.3)
     postgres-pr (0.6.3)
     rack (1.4.5)
@@ -158,7 +151,7 @@ DEPENDENCIES
   databasedotcom
   databasedotcom-rails
   jquery-rails
-  mongo_mapper!
+  mongoid (>= 2.2.0)
   omniauth-salesforce
   pg
   postgres-pr
