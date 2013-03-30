@@ -11,7 +11,7 @@ class DataPoint
 
 
   #  key :quantity, Integer
-    timestamps!
+#    timestamps!
 
 
    field :quantity, type: Integer
