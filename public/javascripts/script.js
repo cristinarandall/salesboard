@@ -41,7 +41,10 @@ $.ajax({
   data: url,
   success: function(data){
 
-        $("#confirmation-add").modal("hide");
+                document.location.reload(true);
+
+
+//        $("#confirmation-add").modal("hide");
 
 
   }
