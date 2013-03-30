@@ -103,7 +103,13 @@
                                 </div>
                                 <div class="progress-bar red medium individual-stat">
                                         <div style="width:40%;">
-                                                <span>80<sup>%</sup></span>
+
+						<% if total %>
+                                                <span> <%= ( (total.to_f) / (goal.quantity.to_f)) %><sup>%</sup></span>
+						<% else %>			
+                                                <span> 0<sup>%</sup></span>
+
+						<% end %>
                                         </div>
                                 </div>
                                                 <strong class="stats-count first"> <%= goal.quantity %> </strong>
